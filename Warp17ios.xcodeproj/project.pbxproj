@@ -14,6 +14,9 @@
 		044B1F721F139E3E00B33677 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 044B1F701F139E3E00B33677 /* LaunchScreen.storyboard */; };
 		044B1F7D1F139E3E00B33677 /* Warp17iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044B1F7C1F139E3E00B33677 /* Warp17iosTests.swift */; };
 		044B1F881F139E3E00B33677 /* Warp17iosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044B1F871F139E3E00B33677 /* Warp17iosUITests.swift */; };
+		30D0A751983CC8FFEF37EF10 /* Pods_Warp17iosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2381CE6B71F3FAFC3E7399F9 /* Pods_Warp17iosTests.framework */; };
+		3C83B0FA577BD4174500E3A8 /* Pods_Warp17ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87876C34703F0E8548EAA6F6 /* Pods_Warp17ios.framework */; };
+		CEBF801440C5F3C636B58DB7 /* Pods_Warp17iosUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAECC8E6FCE9804B93664C93 /* Pods_Warp17iosUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +50,15 @@
 		044B1F831F139E3E00B33677 /* Warp17iosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Warp17iosUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		044B1F871F139E3E00B33677 /* Warp17iosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Warp17iosUITests.swift; sourceTree = "<group>"; };
 		044B1F891F139E3E00B33677 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		10D6F2F023DA43BFDCC007E2 /* Pods-Warp17iosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Warp17iosTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Warp17iosTests/Pods-Warp17iosTests.debug.xcconfig"; sourceTree = "<group>"; };
+		2381CE6B71F3FAFC3E7399F9 /* Pods_Warp17iosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Warp17iosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		62F25AC2708B1736B409098E /* Pods-Warp17ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Warp17ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Warp17ios/Pods-Warp17ios.debug.xcconfig"; sourceTree = "<group>"; };
+		87876C34703F0E8548EAA6F6 /* Pods_Warp17ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Warp17ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AAECC8E6FCE9804B93664C93 /* Pods_Warp17iosUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Warp17iosUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ABAE0128BD1B6561DC9D2565 /* Pods-Warp17iosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Warp17iosTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Warp17iosTests/Pods-Warp17iosTests.release.xcconfig"; sourceTree = "<group>"; };
+		BC12CE76A18C29AFA7B6718F /* Pods-Warp17iosUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Warp17iosUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Warp17iosUITests/Pods-Warp17iosUITests.release.xcconfig"; sourceTree = "<group>"; };
+		C0CD9C07B06FBDC63E2486D7 /* Pods-Warp17iosUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Warp17iosUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Warp17iosUITests/Pods-Warp17iosUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		C371F0479B27BE6AF355DD79 /* Pods-Warp17ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Warp17ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-Warp17ios/Pods-Warp17ios.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C83B0FA577BD4174500E3A8 /* Pods_Warp17ios.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30D0A751983CC8FFEF37EF10 /* Pods_Warp17iosTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,12 +82,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEBF801440C5F3C636B58DB7 /* Pods_Warp17iosUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		00D5F43190294FF8FAF9FECB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				62F25AC2708B1736B409098E /* Pods-Warp17ios.debug.xcconfig */,
+				C371F0479B27BE6AF355DD79 /* Pods-Warp17ios.release.xcconfig */,
+				10D6F2F023DA43BFDCC007E2 /* Pods-Warp17iosTests.debug.xcconfig */,
+				ABAE0128BD1B6561DC9D2565 /* Pods-Warp17iosTests.release.xcconfig */,
+				C0CD9C07B06FBDC63E2486D7 /* Pods-Warp17iosUITests.debug.xcconfig */,
+				BC12CE76A18C29AFA7B6718F /* Pods-Warp17iosUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		044B1F5B1F139E3E00B33677 = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +109,8 @@
 				044B1F7B1F139E3E00B33677 /* Warp17iosTests */,
 				044B1F861F139E3E00B33677 /* Warp17iosUITests */,
 				044B1F651F139E3E00B33677 /* Products */,
+				00D5F43190294FF8FAF9FECB /* Pods */,
+				B6681514905F5126274C74EA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -125,6 +155,16 @@
 			path = Warp17iosUITests;
 			sourceTree = "<group>";
 		};
+		B6681514905F5126274C74EA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				87876C34703F0E8548EAA6F6 /* Pods_Warp17ios.framework */,
+				2381CE6B71F3FAFC3E7399F9 /* Pods_Warp17iosTests.framework */,
+				AAECC8E6FCE9804B93664C93 /* Pods_Warp17iosUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +172,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 044B1F8C1F139E3E00B33677 /* Build configuration list for PBXNativeTarget "Warp17ios" */;
 			buildPhases = (
+				444F6A3CBE0B089522921EA8 /* [CP] Check Pods Manifest.lock */,
 				044B1F601F139E3E00B33677 /* Sources */,
 				044B1F611F139E3E00B33677 /* Frameworks */,
 				044B1F621F139E3E00B33677 /* Resources */,
+				825A56F25E0C267D57373D1C /* [CP] Embed Pods Frameworks */,
+				AF9AE41243982B19FE8AD09D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -149,9 +192,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 044B1F8F1F139E3E00B33677 /* Build configuration list for PBXNativeTarget "Warp17iosTests" */;
 			buildPhases = (
+				4D49024230DF70975EA596F4 /* [CP] Check Pods Manifest.lock */,
 				044B1F741F139E3E00B33677 /* Sources */,
 				044B1F751F139E3E00B33677 /* Frameworks */,
 				044B1F761F139E3E00B33677 /* Resources */,
+				E83013E294C9EB66C0C3BBA7 /* [CP] Embed Pods Frameworks */,
+				3FE1A6799C87D6516D89F5AB /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -167,9 +213,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 044B1F921F139E3E00B33677 /* Build configuration list for PBXNativeTarget "Warp17iosUITests" */;
 			buildPhases = (
+				CCCC25C4340C9A32F8E2D1C2 /* [CP] Check Pods Manifest.lock */,
 				044B1F7F1F139E3E00B33677 /* Sources */,
 				044B1F801F139E3E00B33677 /* Frameworks */,
 				044B1F811F139E3E00B33677 /* Resources */,
+				2380C0BF4CEF626C6F634C09 /* [CP] Embed Pods Frameworks */,
+				E544C8A9A8F5929916053739 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -253,6 +302,144 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2380C0BF4CEF626C6F634C09 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Warp17iosUITests/Pods-Warp17iosUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3FE1A6799C87D6516D89F5AB /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Warp17iosTests/Pods-Warp17iosTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		444F6A3CBE0B089522921EA8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		4D49024230DF70975EA596F4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		825A56F25E0C267D57373D1C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Warp17ios/Pods-Warp17ios-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AF9AE41243982B19FE8AD09D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Warp17ios/Pods-Warp17ios-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CCCC25C4340C9A32F8E2D1C2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E544C8A9A8F5929916053739 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Warp17iosUITests/Pods-Warp17iosUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E83013E294C9EB66C0C3BBA7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Warp17iosTests/Pods-Warp17iosTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		044B1F601F139E3E00B33677 /* Sources */ = {
@@ -412,6 +599,7 @@
 		};
 		044B1F8D1F139E3E00B33677 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 62F25AC2708B1736B409098E /* Pods-Warp17ios.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Warp17ios/Info.plist;
@@ -424,6 +612,7 @@
 		};
 		044B1F8E1F139E3E00B33677 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C371F0479B27BE6AF355DD79 /* Pods-Warp17ios.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Warp17ios/Info.plist;
@@ -436,6 +625,7 @@
 		};
 		044B1F901F139E3E00B33677 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 10D6F2F023DA43BFDCC007E2 /* Pods-Warp17iosTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -450,6 +640,7 @@
 		};
 		044B1F911F139E3E00B33677 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ABAE0128BD1B6561DC9D2565 /* Pods-Warp17iosTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -464,6 +655,7 @@
 		};
 		044B1F931F139E3E00B33677 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C0CD9C07B06FBDC63E2486D7 /* Pods-Warp17iosUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = Warp17iosUITests/Info.plist;
@@ -477,6 +669,7 @@
 		};
 		044B1F941F139E3E00B33677 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BC12CE76A18C29AFA7B6718F /* Pods-Warp17iosUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = Warp17iosUITests/Info.plist;
