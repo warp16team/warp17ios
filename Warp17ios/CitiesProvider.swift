@@ -11,31 +11,53 @@ import SwiftyJSON
 import RealmSwift
 import Alamofire
 
-class CitiesViewProvider {
+class CitiesProvider: ApiClient {
+    var endpoint = "/cities"
+    let realm = try! Realm()
+    typealias planetsDict = [Int:RealmPlanet]
+    
     func loadJson() {
+        request(endpoint: endpoint, parameters: Parameters())
+    }
+    
+    override func proceedWithJSON(json: JSON) {
+        print(json)
         
-        let realm = try! Realm()
+        print(realm.configuration.fileURL!)
         
-        let url = "https://warp16.ru/api/cities?token=cc43de317c7b45042d6dd7d09ee12d74"
+        let planets = savePlanets(json: json["planets"])
+        saveCities(json: json["cities"], planetsDict: planets)
+    }
+    
+    func savePlanets(json: JSON) -> planetsDict {
+        var planets: planetsDict = [:]
         
-        Alamofire.request(url, method: .get).validate().responseJSON { response in
+        for (_, subJson) in json {
+            let planet = RealmPlanet()
+            planet.id = subJson["id"].intValue
+            planet.name = subJson["name"].stringValue
+            planets[planet.id] = planet
             
-            switch response.result {
-            case .success(let value):
-                let json = JSON(value)
-//                print("JSON: \(json["city"]["name"].stringValue)")
-//                let onlineWeather = WeatherData()
-//                onlineWeather.city_name = json["city"]["name"].stringValue
-                
-//                try! realm.write {
-//                    realm.add(onlineWeather)
-//                }
-                
-            case .failure(let error):
-                print(error)
+            try! realm.write {
+                realm.add(planet, update: true)
             }
-            
         }
+//        print(planets)
         
+        return planets
+    }
+    
+    func saveCities(json: JSON, planetsDict: planetsDict) {
+        for (_, subJson) in json {
+            let city = RealmCity()
+            city.id = subJson["id"].intValue
+            city.name = subJson["name"].stringValue
+            city.planet = planetsDict[subJson["planetId"].intValue]!
+            print(city)
+            
+            try! realm.write {
+                realm.add(city, update: true)
+            }
+        }
     }
 }

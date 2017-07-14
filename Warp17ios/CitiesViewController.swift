@@ -14,6 +14,10 @@ class CitiesViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let pr = CitiesProvider()
+        
+        pr.loadJson()
         // Do any additional setup after loading the view, typically from a nib.
     }
 
