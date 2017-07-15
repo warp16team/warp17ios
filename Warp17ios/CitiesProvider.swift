@@ -12,9 +12,16 @@ import RealmSwift
 import Alamofire
 
 class CitiesProvider: ApiClient {
-    var endpoint = "/cities"
-    let realm = try! Realm()
     typealias planetsDict = [Int:RealmPlanet]
+    
+    var endpoint = "/cities"
+    
+    private let realm = try! Realm()
+    private var dataStorage: DataStorage {
+        get {
+            return DataStorage.sharedInstance
+        }
+    }
     
     func loadJson() {
         request(endpoint: endpoint, parameters: Parameters())
@@ -27,6 +34,8 @@ class CitiesProvider: ApiClient {
         
         let planets = savePlanets(json: json["planets"])
         saveCities(json: json["cities"], planetsDict: planets)
+        
+        dataStorage.refreshViewControllers()
     }
     
     func savePlanets(json: JSON) -> planetsDict {

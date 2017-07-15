@@ -8,38 +8,38 @@
 
 import UIKit
 
-class CitiesViewController: UITableViewController {
+class PlanetsViewController: UITableViewController {
     
     var dataStorage: DataStorage {
         get {
             return DataStorage.sharedInstance
         }
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        dataStorage.citiesVC = self
+        dataStorage.planetsVC = self
         dataStorage.refreshViewControllers()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataStorage.cities.count
+        return dataStorage.planets.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cityCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "planetCell", for: indexPath)
         
-        cell.textLabel?.text = dataStorage.cities[indexPath.row].name
+        cell.textLabel?.text = dataStorage.planets[indexPath.row].name
         
         return cell
     }
