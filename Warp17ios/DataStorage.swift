@@ -23,7 +23,11 @@ class DataStorage {
     
     init()
     {
-        loadDataFromDb()
+        if AppSettings.sharedInstance.checkIsRealmInitialized() {
+            loadDataFromDb()
+        }
+
+        loadDataFromApi()
     }
     
     public func loadDataFromDb() {
@@ -37,10 +41,14 @@ class DataStorage {
     }
     
     public func refreshViewControllers() {
+        print("refreshing table views")
+
         if planetsVC != nil {
             planetsVC!.tableView.reloadData()
         }
+        
         if citiesVC != nil {
+            citiesVC!.cities = getCitiesForPlanet(planetId: citiesVC!.planetId)
             citiesVC!.tableView.reloadData()
         }
     }
@@ -57,5 +65,17 @@ class DataStorage {
         for planet in realm.objects(RealmPlanet.self) {
             planets.append(planet)
         }
+    }
+    
+    private func getCitiesForPlanet(planetId: Int) -> [RealmCity] {
+        var result: [RealmCity] = []
+        
+        for city in cities {
+            if city.planet!.id == planetId {
+                result.append(city)
+            }
+        }
+        
+        return result
     }
 }

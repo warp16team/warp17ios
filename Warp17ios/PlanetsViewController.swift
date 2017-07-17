@@ -18,6 +18,7 @@ class PlanetsViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        AppSettings.sharedInstance.setRealmIsInitialized(state: false)
         
         dataStorage.planetsVC = self
         dataStorage.refreshViewControllers()
@@ -42,6 +43,16 @@ class PlanetsViewController: UITableViewController {
         cell.textLabel?.text = dataStorage.planets[indexPath.row].name
         
         return cell
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "planetCities" {
+            if let indexPath = tableView.indexPathForSelectedRow {
+                let destinationVC = segue.destination as! CitiesViewController
+                destinationVC.planetId = dataStorage.planets[indexPath.row].id
+            }
+            
+        }
     }
 }
 

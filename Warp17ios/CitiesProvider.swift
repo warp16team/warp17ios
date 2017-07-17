@@ -34,8 +34,11 @@ class CitiesProvider: ApiClient {
         
         let planets = savePlanets(json: json["planets"])
         saveCities(json: json["cities"], planetsDict: planets)
+        AppSettings.sharedInstance.setRealmIsInitialized()
         
-        dataStorage.refreshViewControllers()
+        print("finished loading data fron json")
+        
+        dataStorage.loadDataFromDb()
     }
     
     func savePlanets(json: JSON) -> planetsDict {
@@ -61,6 +64,7 @@ class CitiesProvider: ApiClient {
             let city = RealmCity()
             city.id = subJson["id"].intValue
             city.name = subJson["name"].stringValue
+            city.population = subJson["population"].intValue
             city.planet = planetsDict[subJson["planetId"].intValue]!
             print(city)
             

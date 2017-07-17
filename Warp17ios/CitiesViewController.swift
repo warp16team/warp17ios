@@ -10,7 +10,10 @@ import UIKit
 
 class CitiesViewController: UITableViewController {
     
-    var dataStorage: DataStorage {
+    public var planetId: Int = 0
+    public var cities: [RealmCity] = []
+    
+    private var dataStorage: DataStorage {
         get {
             return DataStorage.sharedInstance
         }
@@ -18,6 +21,8 @@ class CitiesViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print("showing cities for planetId \(planetId)")
         
         dataStorage.citiesVC = self
         dataStorage.refreshViewControllers()
@@ -33,13 +38,14 @@ class CitiesViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataStorage.cities.count
+        return cities.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cityCell", for: indexPath)
         
-        cell.textLabel?.text = dataStorage.cities[indexPath.row].name
+        cell.textLabel?.text = cities[indexPath.row].name
+        cell.detailTextLabel?.text = cities[indexPath.row].getFormattedPopulation()
         
         return cell
     }
