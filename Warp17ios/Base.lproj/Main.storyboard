@@ -57,6 +57,70 @@
             </objects>
             <point key="canvasLocation" x="944.79999999999995" y="-421.43928035982015"/>
         </scene>
+        <!--Add City Table View Controller-->
+        <scene sceneID="R4R-6u-7OD">
+            <objects>
+                <tableViewController id="rbB-u2-Ips" userLabel="Add City Table View Controller" customClass="AddCityTableViewController" customModule="Warp17ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="73" sectionHeaderHeight="28" sectionFooterHeight="28" id="l9F-0a-tcy">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <sections>
+                            <tableViewSection id="rRe-BC-dm1">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AddCityFormCell" rowHeight="73" id="mSG-Mq-Bml">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="73"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mSG-Mq-Bml" id="CpC-2J-Qpm">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="72.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="New city name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N6V-7o-gig">
+                                                    <rect key="frame" x="35" y="26" width="124" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bqb-6F-LAm" userLabel="New City Text Field">
+                                                    <rect key="frame" x="186" y="21" width="146" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="rbB-u2-Ips" id="LtT-5u-OK1"/>
+                            <outlet property="delegate" destination="rbB-u2-Ips" id="2xL-i7-vVS"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Found a new city" id="nl4-TW-p6b">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="l1t-T6-ILE">
+                            <connections>
+                                <segue destination="4hK-FD-2R4" kind="unwind" identifier="returnToCitiesList" unwindAction="returnToCitiesListWithSegue:" id="BOb-hV-tX8"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Doo-y4-x6M">
+                            <connections>
+                                <action selector="CreateCity:" destination="rbB-u2-Ips" id="s2l-be-b4n"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="newCityName" destination="Bqb-6F-LAm" id="SrT-Cf-WoT"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sW8-2q-jtX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="4hK-FD-2R4" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2568.8000000000002" y="-1104.1979010494754"/>
+        </scene>
         <!--Cities-->
         <scene sceneID="77m-sH-T33">
             <objects>
@@ -97,7 +161,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Cities" id="xSk-cS-cpB">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="qcd-Sv-0q3"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="qcd-Sv-0q3">
+                            <connections>
+                                <segue destination="aip-hN-2l1" kind="show" id="a4f-zz-NU9"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="imN-wq-6iK" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -121,6 +189,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qns-3T-ke4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5.5999999999999996" y="-421.43928035982015"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="b5A-V4-hLW">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="aip-hN-2l1" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="w2p-sw-o6o">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="rbB-u2-Ips" kind="relationship" relationship="rootViewController" id="XnH-gU-Ua7"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="shA-KY-ygl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1629.5999999999999" y="-1104.1979010494754"/>
         </scene>
     </scenes>
 </document>

@@ -49,5 +49,9 @@ class CitiesViewController: UITableViewController {
         
         return cell
     }
+    
+    @IBAction func returnToCitiesList(segue: UIStoryboardSegue) {
+        
+    }
 }
 
