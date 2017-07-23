@@ -20,6 +20,9 @@ class PlanetsViewController: UITableViewController {
         super.viewDidLoad()
 //        AppSettings.sharedInstance.setRealmIsInitialized(state: false)
         
+        let updater = Updater()
+        updater.proceed()
+        
         dataStorage.planetsVC = self
         dataStorage.refreshViewControllers()
     }

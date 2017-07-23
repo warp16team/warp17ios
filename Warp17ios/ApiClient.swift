@@ -22,13 +22,15 @@ class ApiClient {
         var params = parameters
         params["token"] = token
         
-        Alamofire.request(requestUrl, method: method, parameters: params).validate().responseJSON { response in
-            
+        Alamofire.request(requestUrl, method: method, parameters: params).validate().responseJSON { response in            
                 switch response.result {
                 case .success(let value):
                     self.proceedWithJSON(json: JSON(value))
                 case .failure(let error):
                     print(error)
+                    UiUtils.sharedInstance.errorAlert(
+                        text: "Error with internet connection, please retry later."
+                    )
                 }
             
         }

@@ -22,6 +22,9 @@
 		044B1FA81F1AA27200B33677 /* PlanetsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044B1FA71F1AA27200B33677 /* PlanetsViewController.swift */; };
 		044B1FAA1F1D3A6F00B33677 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044B1FA91F1D3A6F00B33677 /* AppSettings.swift */; };
 		044B1FAE1F1E9F0200B33677 /* AddCityTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044B1FAD1F1E9F0200B33677 /* AddCityTableViewController.swift */; };
+		044B1FB01F2142E000B33677 /* UiUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044B1FAF1F2142E000B33677 /* UiUtils.swift */; };
+		044B1FB21F21478100B33677 /* Updater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044B1FB11F21478100B33677 /* Updater.swift */; };
+		04AA98231F2228CA00A34E60 /* UpdatesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AA98221F2228CA00A34E60 /* UpdatesProvider.swift */; };
 		30D0A751983CC8FFEF37EF10 /* Pods_Warp17iosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2381CE6B71F3FAFC3E7399F9 /* Pods_Warp17iosTests.framework */; };
 		3C83B0FA577BD4174500E3A8 /* Pods_Warp17ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87876C34703F0E8548EAA6F6 /* Pods_Warp17ios.framework */; };
 		CEBF801440C5F3C636B58DB7 /* Pods_Warp17iosUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAECC8E6FCE9804B93664C93 /* Pods_Warp17iosUITests.framework */; };
@@ -66,6 +69,9 @@
 		044B1FA71F1AA27200B33677 /* PlanetsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanetsViewController.swift; sourceTree = "<group>"; };
 		044B1FA91F1D3A6F00B33677 /* AppSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
 		044B1FAD1F1E9F0200B33677 /* AddCityTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCityTableViewController.swift; sourceTree = "<group>"; };
+		044B1FAF1F2142E000B33677 /* UiUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UiUtils.swift; sourceTree = "<group>"; };
+		044B1FB11F21478100B33677 /* Updater.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Updater.swift; sourceTree = "<group>"; };
+		04AA98221F2228CA00A34E60 /* UpdatesProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdatesProvider.swift; sourceTree = "<group>"; };
 		10D6F2F023DA43BFDCC007E2 /* Pods-Warp17iosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Warp17iosTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Warp17iosTests/Pods-Warp17iosTests.debug.xcconfig"; sourceTree = "<group>"; };
 		2381CE6B71F3FAFC3E7399F9 /* Pods_Warp17iosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Warp17iosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		62F25AC2708B1736B409098E /* Pods-Warp17ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Warp17ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Warp17ios/Pods-Warp17ios.debug.xcconfig"; sourceTree = "<group>"; };
@@ -144,14 +150,17 @@
 			isa = PBXGroup;
 			children = (
 				044B1F671F139E3E00B33677 /* AppDelegate.swift */,
+				044B1FB11F21478100B33677 /* Updater.swift */,
 				044B1F691F139E3E00B33677 /* CitiesViewController.swift */,
 				044B1F971F19475600B33677 /* ApiClient.swift */,
 				044B1F6B1F139E3E00B33677 /* Main.storyboard */,
 				044B1FAD1F1E9F0200B33677 /* AddCityTableViewController.swift */,
+				044B1FAF1F2142E000B33677 /* UiUtils.swift */,
 				044B1F6E1F139E3E00B33677 /* Assets.xcassets */,
 				044B1F701F139E3E00B33677 /* LaunchScreen.storyboard */,
 				044B1F731F139E3E00B33677 /* Info.plist */,
 				044B1F951F17A5EC00B33677 /* CitiesProvider.swift */,
+				04AA98221F2228CA00A34E60 /* UpdatesProvider.swift */,
 				044B1FA51F1AA18F00B33677 /* DataStorage.swift */,
 				044B1FA91F1D3A6F00B33677 /* AppSettings.swift */,
 				044B1FA71F1AA27200B33677 /* PlanetsViewController.swift */,
@@ -472,11 +481,14 @@
 			files = (
 				044B1FA41F1954BD00B33677 /* RealmCity.swift in Sources */,
 				044B1F6A1F139E3E00B33677 /* CitiesViewController.swift in Sources */,
+				04AA98231F2228CA00A34E60 /* UpdatesProvider.swift in Sources */,
 				044B1FAE1F1E9F0200B33677 /* AddCityTableViewController.swift in Sources */,
 				044B1FA21F1954A900B33677 /* RealmPlanet.swift in Sources */,
 				044B1FAA1F1D3A6F00B33677 /* AppSettings.swift in Sources */,
+				044B1FB21F21478100B33677 /* Updater.swift in Sources */,
 				044B1F681F139E3E00B33677 /* AppDelegate.swift in Sources */,
 				044B1FA81F1AA27200B33677 /* PlanetsViewController.swift in Sources */,
+				044B1FB01F2142E000B33677 /* UiUtils.swift in Sources */,
 				044B1F961F17A5EC00B33677 /* CitiesProvider.swift in Sources */,
 				044B1FA61F1AA18F00B33677 /* DataStorage.swift in Sources */,
 				044B1F981F19475600B33677 /* ApiClient.swift in Sources */,

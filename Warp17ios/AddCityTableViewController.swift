@@ -14,19 +14,12 @@ class AddCityTableViewController: UITableViewController {
     @IBAction func CreateCity(_ sender: UIBarButtonItem) {
         
         if newCityName.text!.isEmpty {
-            let alert = UIAlertController(title: "Error", message: "New city name is empty.", preferredStyle: .alert)
-            let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
-            alert.addAction(action)
-            self.present(alert, animated: true, completion: nil)
-        }else if !DataStorage.sharedInstance.cities.filter({ (city) -> Bool in
+            UiUtils.sharedInstance.errorAlert(text: "New city name is empty.")
+        } else if !DataStorage.sharedInstance.cities.filter({ (city) -> Bool in
             return (city.name == newCityName.text!)
         }).isEmpty {
-            let alert = UIAlertController(title: "Error", message: "This city name is already used", preferredStyle: .alert)
-            let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
-            alert.addAction(action)
-            self.present(alert, animated: true, completion: nil)
-        }
-        else {
+            UiUtils.sharedInstance.errorAlert(text: "This city name is already used.")
+        } else {
             
 //         @todo create city with api request POST /api/cities {lat, long, name}
             self.performSegue(withIdentifier: "returnToCitiesList", sender: nil)
