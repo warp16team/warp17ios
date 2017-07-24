@@ -28,7 +28,7 @@ class CitiesProvider: ApiClient {
     }
     
     override func proceedWithJSON(json: JSON) {
-        print(json)
+        // print(json)
         
         print(realm.configuration.fileURL!)
         
@@ -66,7 +66,7 @@ class CitiesProvider: ApiClient {
             city.name = subJson["name"].stringValue
             city.population = subJson["population"].intValue
             city.planet = planetsDict[subJson["planetId"].intValue]!
-            print(city)
+            // print(city)
             
             try! realm.write {
                 realm.add(city, update: true)

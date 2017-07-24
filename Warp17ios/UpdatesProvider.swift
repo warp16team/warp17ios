@@ -11,7 +11,12 @@ import SwiftyJSON
 import Alamofire
 
 class UpdatesProvider: ApiClient {
-    var endpoint = "/content"
+    var endpoint = "/updates"
+    private var updater: Updater = Updater()
+    
+    init(updater: Updater) {
+        self.updater = updater
+    }
     
     private var dataStorage: DataStorage {
         get {
@@ -20,47 +25,16 @@ class UpdatesProvider: ApiClient {
     }
     
     func loadJson() {
+        print("calling endpoint to find content updates...")
         request(endpoint: endpoint, parameters: Parameters())
     }
     
     override func proceedWithJSON(json: JSON) {
+        print("api returned list of content:")
         print(json)
         
-        Updater.proceedSync(files: json["files"])
+        updater.proceedSync(files: json["content"])
         
         print("updates: finished loading data fron json")
-    }
-    
-    func savePlanets(json: JSON) -> planetsDict {
-        var planets: planetsDict = [:]
-        
-        for (_, subJson) in json {
-            let planet = RealmPlanet()
-            planet.id = subJson["id"].intValue
-            planet.name = subJson["name"].stringValue
-            planets[planet.id] = planet
-            
-            try! realm.write {
-                realm.add(planet, update: true)
-            }
-        }
-        //        print(planets)
-        
-        return planets
-    }
-    
-    func saveCities(json: JSON, planetsDict: planetsDict) {
-        for (_, subJson) in json {
-            let city = RealmCity()
-            city.id = subJson["id"].intValue
-            city.name = subJson["name"].stringValue
-            city.population = subJson["population"].intValue
-            city.planet = planetsDict[subJson["planetId"].intValue]!
-            print(city)
-            
-            try! realm.write {
-                realm.add(city, update: true)
-            }
-        }
     }
 }
