@@ -13,12 +13,16 @@ import Alamofire
 // todo использование картинок при отображении перечня планет и городов
 class Updater {
     private let contentDir: String = NSHomeDirectory().appending("/Content")
-    private let contentUrl: String = "file://" + NSHomeDirectory().appending("/Content")
+    
+    // создание последовательной очереди
+    let downloadTasksQueue = DispatchQueue(label: "updates_download_queue")
+    
     private var downloadQueue: [String] = []
     
     public func proceed() {
         // todo инициализация view прогрессбара
-        getUpdatesList()
+        let provider = UpdatesProvider(updater: self)
+        provider.loadJson() // запрос к api UpdatesProvider - переадресация на функцию proceedSync
     }
     
     public func proceedSync(files: JSON) {
@@ -31,7 +35,7 @@ class Updater {
             }
         }
 
-        createContentDirectory() // создание каталога обновлений
+        createContentDirectory() // создание каталога контента
         
         // идем по списку и загружаем файлы
         for filename in downloadQueue {
@@ -40,12 +44,6 @@ class Updater {
         }
         
         // todo показываем обычный view controller
-    }
-    
-    private func getUpdatesList()
-    {
-        let provider = UpdatesProvider(updater: self)
-        provider.loadJson() // запрос к api UpdatesProvider - переадресация на функцию proceedSync
     }
     
     private func createContentDirectory() {
@@ -74,9 +72,9 @@ class Updater {
     private func isFileExists(_ filename: String) -> Bool {
         let path = getPathForContentFile(filename)
         // debug delete file
-        if FileManager.default.fileExists(atPath: path) {
-            try! FileManager.default.removeItem(atPath: path)
-        }
+        //if FileManager.default.fileExists(atPath: path) {
+        //    try! FileManager.default.removeItem(atPath: path)
+        //}
         // end of debug
         
         return FileManager.default.fileExists(atPath: path)
@@ -86,35 +84,24 @@ class Updater {
         return contentDir.appending("/" + filename)
     }
     
-    private func getUrlForContentFile(_ filename: String) -> URL {
-        return URL(string: contentUrl.appending("/" + filename))!
-    }
-    
     private func downloadContentFile(_ filename: String) {
-        print("downloading content file \(filename)") // todo однопоточность загрузки - КАК ЭТО СДЕЛАТЬ?
-        let utilityQueue = DispatchQueue.global(qos: .utility)
+        print("downloading content file \(filename)")
+        let destination = DownloadRequest.suggestedDownloadDestination(for: .documentDirectory)
         
-        
-        
-        Alamofire.download("https://warp16.ru/ios/content/" + filename)
-            .downloadProgress(queue: utilityQueue) { progress in
-                print("Download Progress: \(progress.fractionCompleted)")
+        Alamofire.download("https://warp16.ru/ios/content/" + filename, to: destination)
+            .downloadProgress(queue: downloadTasksQueue) { progress in
+                print("Download content file \(filename) progress: \(progress.fractionCompleted)")
                 // todo обновление прогрессбара загрузки одного файла
             }
             .responseData { response in
-                
-                guard let data = response.result.value else {
+                if let error = response.error {
                     debugPrint(response)
-                    print(response.error!)
-                    // todo почему тут ошибка??
-                    // responseSerializationFailed(Alamofire.AFError.ResponseSerializationFailureReason.inputFileReadFailed(
-                    return
-                }
-                print("download complete - no error occured")
-                
-                print("trying to save \(filename)")
-                try! data.write(to: self.getUrlForContentFile(filename))
+                    print("Failed with error: \(error)")
+                }else{
+                    print("download content file \(filename) complete - no error occured")
                     
+                    try! FileManager.default.moveItem(atPath: NSHomeDirectory() + "/Documents/" + filename, toPath: self.getPathForContentFile(filename))
+                }
         }
     }
 }
