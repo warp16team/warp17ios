@@ -28,6 +28,10 @@ class CitiesViewController: UITableViewController {
         dataStorage.refreshViewControllers()
     }
 
+    @IBAction func refreshDataFromApi(_ sender: Any) {
+        dataStorage.loadDataFromApi()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

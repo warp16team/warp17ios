@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -179,11 +180,18 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Cities" id="xSk-cS-cpB">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="qcd-Sv-0q3">
-                            <connections>
-                                <segue destination="aip-hN-2l1" kind="show" id="a4f-zz-NU9"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="add" id="qcd-Sv-0q3">
+                                <connections>
+                                    <segue destination="aip-hN-2l1" kind="show" id="a4f-zz-NU9"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="refresh" id="0pZ-Kq-xzu">
+                                <connections>
+                                    <action selector="refreshDataFromApi:" destination="0fI-N9-VrJ" id="s2e-j2-gzT"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="imN-wq-6iK" userLabel="First Responder" sceneMemberID="firstResponder"/>

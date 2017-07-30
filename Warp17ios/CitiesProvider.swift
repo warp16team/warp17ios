@@ -24,21 +24,40 @@ class CitiesProvider: ApiClient {
     }
     
     func loadJson() {
+        
+        print("\(Thread.current) - loadJson")
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(downloadComplete), name: NSNotification.Name(rawValue: getNotificationName()), object: nil)
+        
         request(endpoint: endpoint, parameters: Parameters())
     }
     
+    @objc func downloadComplete()
+    {
+        print("\(Thread.current) - city api request complete - main thread actions");
+        
+        DispatchQueue.main.sync {
+            dataStorage.loadDataFromDb()
+        }
+    }
+    
     override func proceedWithJSON(json: JSON) {
+        
+        print("\(Thread.current) - proceedWithJSON")
         // print(json)
         
-        print(realm.configuration.fileURL!)
-        
-        let planets = savePlanets(json: json["planets"])
-        saveCities(json: json["cities"], planetsDict: planets)
-        AppSettings.sharedInstance.setRealmIsInitialized()
-        
-        print("finished loading data fron json")
-        
-        dataStorage.loadDataFromDb()
+        DispatchQueue.main.async {
+            print("\(Thread.current) - proceedWithJSON - inside main async")
+            
+            print(self.realm.configuration.fileURL!)
+            
+            let planets = self.savePlanets(json: json["planets"])
+            self.saveCities(json: json["cities"], planetsDict: planets)
+            AppSettings.sharedInstance.setRealmIsInitialized()
+            
+            print("\(Thread.current) - finished loading data fron json")
+            
+        }
     }
     
     func savePlanets(json: JSON) -> planetsDict {

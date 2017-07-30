@@ -37,6 +37,7 @@ class DataStorage {
     }
     
     public func loadDataFromApi() {
+        
         citiesProvider.loadJson()
     }
     
