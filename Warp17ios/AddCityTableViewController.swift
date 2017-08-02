@@ -15,7 +15,7 @@ class AddCityTableViewController: UITableViewController {
         
         if newCityName.text!.isEmpty {
             UiUtils.sharedInstance.errorAlert(text: "New city name is empty.")
-        } else if !DataStorage.sharedInstance.cities.filter({ (city) -> Bool in
+        } else if !DataStorage.sharedDataStorage.cities.filter({ (city) -> Bool in
             return (city.name == newCityName.text!)
         }).isEmpty {
             UiUtils.sharedInstance.errorAlert(text: "This city name is already used.")

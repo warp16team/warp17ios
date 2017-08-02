@@ -12,35 +12,37 @@ import Alamofire
 
 class ApiClient {
     var url = "https://warp16.ru/app_dev.php/api"
-    var token = ""
+    static var token = ""
     let queue = DispatchQueue(label: "api_request_results")
-    let notificationRequestCompleteName = "ApiClient_downloadComplete"
+    // let notificationRequestCompleteName = "ApiClient_downloadComplete"
     
     func request(endpoint: String, parameters: Parameters, method: HTTPMethod = .get) {
         
         let requestUrl = "\(url)\(endpoint)"
         
         var params = parameters
-        params["token"] = token
+        params["token"] = ApiClient.token
         
-        print("\(Thread.current) - alamofire calling \(requestUrl)...")
+        print("\(Thread.current) - api client: alamofire calling \(requestUrl)...")
         
         Alamofire.request(requestUrl, method: method, parameters: params).validate().responseJSON { response in
                 switch response.result {
                 case .success(let value):
-                    print("\(Thread.current) - alamofire calling \(requestUrl) success!")
+                    print("\(Thread.current) - api client: alamofire calling \(requestUrl) success!")
                     
                     self.queue.async {                        
-                        print("\(Thread.current) - alamofire calling \(requestUrl) success ->notification")
+                        //print("\(Thread.current) - api client: alamofire calling \(requestUrl) success ->notification")
                         
-                        NotificationCenter.default.post(name: NSNotification.Name(rawValue: self.getNotificationName()), object: nil)
+                        //NotificationCenter.default.post(name: NSNotification.Name(rawValue: self.getNotificationName()), object: nil)
                         
-                        print("\(Thread.current) - alamofire calling \(requestUrl) - api queue async -> proceedWithJson")
+                        print("\(Thread.current) - api client: alamofire calling \(requestUrl) - api queue async -> proceedWithJson")
                         
                         self.proceedWithJSON(json: JSON(value))
                     }
                 case .failure(let error):
-                    print(error)
+                    print("\(Thread.current) - api client: failed \(requestUrl)")
+                    debugPrint(response)
+                    print(response.value)
                     UiUtils.sharedInstance.errorAlert(
                         text: "Error with internet connection, please retry later."
                     )
@@ -49,9 +51,9 @@ class ApiClient {
         }
     }
     
-    func getNotificationName() -> String {
-        return self.notificationRequestCompleteName
-    }
+    // func getNotificationName() -> String {
+    //    return self.notificationRequestCompleteName
+    //}
     
     func proceedWithJSON(json: JSON) {
         

@@ -19,44 +19,44 @@ class CitiesProvider: ApiClient {
     private let realm = try! Realm()
     private var dataStorage: DataStorage {
         get {
-            return DataStorage.sharedInstance
+            return DataStorage.sharedDataStorage
         }
     }
     
     func loadJson() {
+        print("\(Thread.current) - cities provider: loadJson")
         
-        print("\(Thread.current) - loadJson")
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(downloadComplete), name: NSNotification.Name(rawValue: getNotificationName()), object: nil)
+        //NotificationCenter.default.addObserver(self, selector: #selector(downloadComplete), name: NSNotification.Name(rawValue: getNotificationName()), object: nil)
         
         request(endpoint: endpoint, parameters: Parameters())
     }
     
-    @objc func downloadComplete()
-    {
-        print("\(Thread.current) - city api request complete - main thread actions");
-        
-        DispatchQueue.main.sync {
-            dataStorage.loadDataFromDb()
-        }
-    }
+    //@objc func downloadComplete()
+    //{
+    //    print("\(Thread.current) - cities provider: city api request complete - main thread actions");
+    //
+    //    DispatchQueue.main.sync {
+    //        dataStorage.loadDataFromDb()
+    //    }
+    //}
     
     override func proceedWithJSON(json: JSON) {
         
-        print("\(Thread.current) - proceedWithJSON")
-        // print(json)
+        print("\(Thread.current) - cities provider: proceedWithJSON")
         
         DispatchQueue.main.async {
-            print("\(Thread.current) - proceedWithJSON - inside main async")
+            print("\(Thread.current) - cities provider: save data to realm")
             
             print(self.realm.configuration.fileURL!)
             
             let planets = self.savePlanets(json: json["planets"])
             self.saveCities(json: json["cities"], planetsDict: planets)
+            
             AppSettings.sharedInstance.setRealmIsInitialized()
             
-            print("\(Thread.current) - finished loading data fron json")
+            print("\(Thread.current) - cities provider: data to realm saved")
             
+            self.dataStorage.loadDataFromDb()
         }
     }
     
@@ -73,7 +73,6 @@ class CitiesProvider: ApiClient {
                 realm.add(planet, update: true)
             }
         }
-//        print(planets)
         
         return planets
     }
@@ -85,7 +84,6 @@ class CitiesProvider: ApiClient {
             city.name = subJson["name"].stringValue
             city.population = subJson["population"].intValue
             city.planet = planetsDict[subJson["planetId"].intValue]!
-            // print(city)
             
             try! realm.write {
                 realm.add(city, update: true)

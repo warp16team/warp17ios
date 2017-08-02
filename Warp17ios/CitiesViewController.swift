@@ -15,7 +15,7 @@ class CitiesViewController: UITableViewController {
     
     private var dataStorage: DataStorage {
         get {
-            return DataStorage.sharedInstance
+            return DataStorage.sharedDataStorage
         }
     }
 

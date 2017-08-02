@@ -12,7 +12,7 @@ class PlanetsViewController: UITableViewController {
     
     var dataStorage: DataStorage {
         get {
-            return DataStorage.sharedInstance
+            return DataStorage.sharedDataStorage
         }
     }
     
@@ -20,11 +20,37 @@ class PlanetsViewController: UITableViewController {
         super.viewDidLoad()
 //        AppSettings.sharedInstance.setRealmIsInitialized(state: false)
         
-        let updater = Updater()
-        updater.proceed()
+        NotificationCenter.default.addObserver(self, selector: #selector(authenticate), name: NSNotification.Name(rawValue: String(describing: NotificationEvent.readyToAuth)), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(startUserApiInteraction), name: NSNotification.Name(rawValue: String(describing: NotificationEvent.authenticated)), object: nil)
+        
+        if !AppSettings.sharedInstance.hasAppId() {
+            let registrator = RegisterProvider()
+            registrator.createAppId()
+        } else {
+            NotificationCenter.default.post(
+                name: NSNotification.Name(rawValue: String(describing: NotificationEvent.readyToAuth)),
+                object: nil
+            )
+        }
         
         dataStorage.planetsVC = self
         dataStorage.refreshViewControllers()
+    }
+    
+    func authenticate()
+    {
+        print("\(Thread.current) - ready to auth -> authenticating...")
+        
+        let authenticator = AuthProvider()
+        authenticator.fetchToken()
+    }
+    
+    func startUserApiInteraction()
+    {
+        let updater = Updater()
+        updater.proceed()
+
+        dataStorage.loadDataFromApi()
     }
     
     override func didReceiveMemoryWarning() {

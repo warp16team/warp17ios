@@ -18,23 +18,14 @@ class UpdatesProvider: ApiClient {
         self.updater = updater
     }
     
-    private var dataStorage: DataStorage {
-        get {
-            return DataStorage.sharedInstance
-        }
-    }
-    
     func loadJson() {
-        print("calling endpoint to find content updates...")
+        print("\(Thread.current) - updates provider: calling endpoint...")
         request(endpoint: endpoint, parameters: Parameters())
     }
     
     override func proceedWithJSON(json: JSON) {
-        print("api returned list of content:")
-        print(json)
-        
-        updater.proceedSync(files: json["content"])
-        
-        print("updates: finished loading data fron json")
+        print("\(Thread.current) - updates provider: api returned list of content")
+        updater.proceedSync(files: json["content"])        
+        print("\(Thread.current) - updates provider: finished loading data fron json")
     }
 }

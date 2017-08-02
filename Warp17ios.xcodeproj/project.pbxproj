@@ -25,6 +25,9 @@
 		044B1FB01F2142E000B33677 /* UiUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044B1FAF1F2142E000B33677 /* UiUtils.swift */; };
 		044B1FB21F21478100B33677 /* Updater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044B1FB11F21478100B33677 /* Updater.swift */; };
 		04AA98231F2228CA00A34E60 /* UpdatesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AA98221F2228CA00A34E60 /* UpdatesProvider.swift */; };
+		04AA98271F32739400A34E60 /* RegisterProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AA98261F32739400A34E60 /* RegisterProvider.swift */; };
+		04FDFC4F1F327828000B2730 /* NotificationEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FDFC4E1F327828000B2730 /* NotificationEvent.swift */; };
+		04FDFC511F327A4C000B2730 /* AuthProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FDFC501F327A4C000B2730 /* AuthProvider.swift */; };
 		30D0A751983CC8FFEF37EF10 /* Pods_Warp17iosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2381CE6B71F3FAFC3E7399F9 /* Pods_Warp17iosTests.framework */; };
 		3C83B0FA577BD4174500E3A8 /* Pods_Warp17ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87876C34703F0E8548EAA6F6 /* Pods_Warp17ios.framework */; };
 		CEBF801440C5F3C636B58DB7 /* Pods_Warp17iosUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAECC8E6FCE9804B93664C93 /* Pods_Warp17iosUITests.framework */; };
@@ -72,6 +75,9 @@
 		044B1FAF1F2142E000B33677 /* UiUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UiUtils.swift; sourceTree = "<group>"; };
 		044B1FB11F21478100B33677 /* Updater.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Updater.swift; sourceTree = "<group>"; };
 		04AA98221F2228CA00A34E60 /* UpdatesProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdatesProvider.swift; sourceTree = "<group>"; };
+		04AA98261F32739400A34E60 /* RegisterProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterProvider.swift; sourceTree = "<group>"; };
+		04FDFC4E1F327828000B2730 /* NotificationEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationEvent.swift; sourceTree = "<group>"; };
+		04FDFC501F327A4C000B2730 /* AuthProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthProvider.swift; sourceTree = "<group>"; };
 		10D6F2F023DA43BFDCC007E2 /* Pods-Warp17iosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Warp17iosTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Warp17iosTests/Pods-Warp17iosTests.debug.xcconfig"; sourceTree = "<group>"; };
 		2381CE6B71F3FAFC3E7399F9 /* Pods_Warp17iosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Warp17iosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		62F25AC2708B1736B409098E /* Pods-Warp17ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Warp17ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Warp17ios/Pods-Warp17ios.debug.xcconfig"; sourceTree = "<group>"; };
@@ -150,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				044B1F671F139E3E00B33677 /* AppDelegate.swift */,
+				04FDFC4E1F327828000B2730 /* NotificationEvent.swift */,
 				044B1FB11F21478100B33677 /* Updater.swift */,
 				044B1F691F139E3E00B33677 /* CitiesViewController.swift */,
 				044B1F971F19475600B33677 /* ApiClient.swift */,
@@ -166,6 +173,8 @@
 				044B1FA71F1AA27200B33677 /* PlanetsViewController.swift */,
 				044B1FA11F1954A900B33677 /* RealmPlanet.swift */,
 				044B1FA31F1954BD00B33677 /* RealmCity.swift */,
+				04AA98261F32739400A34E60 /* RegisterProvider.swift */,
+				04FDFC501F327A4C000B2730 /* AuthProvider.swift */,
 			);
 			path = Warp17ios;
 			sourceTree = "<group>";
@@ -488,6 +497,9 @@
 				044B1FB21F21478100B33677 /* Updater.swift in Sources */,
 				044B1F681F139E3E00B33677 /* AppDelegate.swift in Sources */,
 				044B1FA81F1AA27200B33677 /* PlanetsViewController.swift in Sources */,
+				04AA98271F32739400A34E60 /* RegisterProvider.swift in Sources */,
+				04FDFC511F327A4C000B2730 /* AuthProvider.swift in Sources */,
+				04FDFC4F1F327828000B2730 /* NotificationEvent.swift in Sources */,
 				044B1FB01F2142E000B33677 /* UiUtils.swift in Sources */,
 				044B1F961F17A5EC00B33677 /* CitiesProvider.swift in Sources */,
 				044B1FA61F1AA18F00B33677 /* DataStorage.swift in Sources */,

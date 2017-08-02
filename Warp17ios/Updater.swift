@@ -14,36 +14,42 @@ import Alamofire
 class Updater {
     private let contentDir: String = NSHomeDirectory().appending("/Content")
     
-    // создание последовательной очереди
-    let downloadTasksQueue = DispatchQueue(label: "updates_download_queue")
+    let downloadTasksQueue = DispatchQueue(label: "updates_download_queue"/*, attributes: .concurrent*/)
     
-    private var downloadQueue: [String] = []
+    private var haveErrorsDownloadingContentFiles: Bool = false // как сделать потокобезопасной?
     
     public func proceed() {
         // todo инициализация view прогрессбара
+        
+        haveErrorsDownloadingContentFiles = false
         let provider = UpdatesProvider(updater: self)
         provider.loadJson() // запрос к api UpdatesProvider - переадресация на функцию proceedSync
     }
     
     public func proceedSync(files: JSON) {
-        // переадресация из провайдера с прокидыванием json
+        // сюда попадаем из провайдера по получении json
+        var downloadQueue: [String] = []
+        
+        createContentDirectory() // создание каталога контента
         
         for (_, subJson) in files {
             if (!checkAlreadyDownloaded(file: subJson)) {
                 downloadQueue.append(subJson["filename"].stringValue)
-                print("updated file \(subJson["filename"]) must be downloaded")
+                print("\(Thread.current) - updater: updated file \(subJson["filename"]) must be downloaded")
             }
         }
-
-        createContentDirectory() // создание каталога контента
         
-        // идем по списку и загружаем файлы
-        for filename in downloadQueue {
+        downloadFiles(filenameList: downloadQueue)
+        // todo показываем обычный view controller по завершении всего обновления
+    }
+    
+    private func downloadFiles(filenameList: [String]) {
+        
+        for filename in filenameList {
             downloadContentFile(filename)
             // todo обновление progressbar
         }
-        
-        // todo показываем обычный view controller
+
     }
     
     private func createContentDirectory() {
@@ -62,7 +68,7 @@ class Updater {
         
         // пока на наличие файла, todo проверка версии file["version"] в реалме
         if isFileExists(file["filename"].stringValue) {
-            print("already have \(file["filename"].stringValue)")
+            print("\(Thread.current) - updater: already have \(file["filename"].stringValue)")
             return true
         }
         
@@ -70,35 +76,36 @@ class Updater {
     }
     
     private func isFileExists(_ filename: String) -> Bool {
-        let path = getPathForContentFile(filename)
-        // debug delete file
-        //if FileManager.default.fileExists(atPath: path) {
-        //    try! FileManager.default.removeItem(atPath: path)
-        //}
-        // end of debug
-        
-        return FileManager.default.fileExists(atPath: path)
+        return FileManager.default.fileExists(atPath: getPathForContentFile(filename))
     }
+    
+    //private func deleteFile(_ filename: String) {
+    //    let path = getPathForContentFile(filename)
+    //    if FileManager.default.fileExists(atPath: path) {
+    //        try! FileManager.default.removeItem(atPath: path)
+    //    }
+    //}
     
     private func getPathForContentFile(_ filename: String) -> String {
         return contentDir.appending("/" + filename)
     }
     
     private func downloadContentFile(_ filename: String) {
-        print("downloading content file \(filename)")
+        print("\(Thread.current) - updater: downloading content file \(filename)")
         let destination = DownloadRequest.suggestedDownloadDestination(for: .documentDirectory)
         
         Alamofire.download("https://warp16.ru/ios/content/" + filename, to: destination)
             .downloadProgress(queue: downloadTasksQueue) { progress in
-                print("Download content file \(filename) progress: \(progress.fractionCompleted)")
+                print("\(Thread.current) - updater: Download content file \(filename) progress: \(progress.fractionCompleted)")
                 // todo обновление прогрессбара загрузки одного файла
             }
             .responseData { response in
                 if let error = response.error {
                     debugPrint(response)
-                    print("Failed with error: \(error)")
+                    print("\(Thread.current) - updater: download \(filename) failed with error: \(error)")
+                    self.haveErrorsDownloadingContentFiles = true
                 }else{
-                    print("download content file \(filename) complete - no error occured")
+                    print("\(Thread.current) - updater: content file \(filename) downloaded")
                     
                     try! FileManager.default.moveItem(atPath: NSHomeDirectory() + "/Documents/" + filename, toPath: self.getPathForContentFile(filename))
                 }
