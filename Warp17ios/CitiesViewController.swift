@@ -8,28 +8,27 @@
 
 import UIKit
 
-class CitiesViewController: UITableViewController {
+class CitiesViewController: UITableViewController, TableViewRefreshDelegate {
     
     public var planetId: Int = 0
     public var cities: [RealmCity] = []
-    
-    private var dataStorage: DataStorage {
-        get {
-            return DataStorage.sharedDataStorage
-        }
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         print("showing cities for planetId \(planetId)")
         
-        dataStorage.citiesVC = self
-        dataStorage.refreshViewControllers()
+        DataStorage.sharedDataStorage.setCitiesVC(self)
+        DataStorage.sharedDataStorage.refreshViewControllers()
+    }
+    
+    public func reloadTableViewData() {
+        cities = DataStorage.sharedDataStorage.getCitiesForPlanet(planetId: planetId)
+        tableView.reloadData()
     }
 
     @IBAction func refreshDataFromApi(_ sender: Any) {
-        dataStorage.loadDataFromApi()
+        DataStorage.sharedDataStorage.loadDataFromApi()
     }
     
     override func didReceiveMemoryWarning() {

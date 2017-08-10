@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>313823376398-nsl0ksdusv2216gdtnn94l8ul67qj0ss.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.313823376398-nsl0ksdusv2216gdtnn94l8ul67qj0ss</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCesCURR5aVFKY2t1TxM6dkK7ymWwYKxms</string>
+	<key>GCM_SENDER_ID</key>
+	<string>313823376398</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>warpteam.Warp17ios</string>
+	<key>PROJECT_ID</key>
+	<string>warp17ios</string>
+	<key>STORAGE_BUCKET</key>
+	<string>warp17ios.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:313823376398:ios:f0ef2321b8e56aea</string>
+	<key>DATABASE_URL</key>
+	<string>https://warp17ios.firebaseio.com</string>
+</dict>
+</plist>

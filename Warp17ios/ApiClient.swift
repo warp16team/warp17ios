@@ -13,10 +13,10 @@ import Alamofire
 class ApiClient {
     var url = "https://warp16.ru/app_dev.php/api"
     static var token = ""
-    let queue = DispatchQueue(label: "api_request_results")
-    // let notificationRequestCompleteName = "ApiClient_downloadComplete"
     
-    func request(endpoint: String, parameters: Parameters, method: HTTPMethod = .get) {
+    let queue = DispatchQueue(label: "api_request_results")
+    
+    func request(endpoint: String, parameters: Parameters, method: HTTPMethod = .get, completion: @escaping (_ json: JSON) -> Void) {
         
         let requestUrl = "\(url)\(endpoint)"
         
@@ -26,18 +26,14 @@ class ApiClient {
         print("\(Thread.current) - api client: alamofire calling \(requestUrl)...")
         
         Alamofire.request(requestUrl, method: method, parameters: params).validate().responseJSON { response in
-                switch response.result {
+            switch response.result {
                 case .success(let value):
                     print("\(Thread.current) - api client: alamofire calling \(requestUrl) success!")
                     
-                    self.queue.async {                        
-                        //print("\(Thread.current) - api client: alamofire calling \(requestUrl) success ->notification")
+                    self.queue.async {
+                        print("\(Thread.current) - api client: alamofire calling \(requestUrl) - api queue async -> proceed with json closure...")
                         
-                        //NotificationCenter.default.post(name: NSNotification.Name(rawValue: self.getNotificationName()), object: nil)
-                        
-                        print("\(Thread.current) - api client: alamofire calling \(requestUrl) - api queue async -> proceedWithJson")
-                        
-                        self.proceedWithJSON(json: JSON(value))
+                        completion(JSON(value))
                     }
                 case .failure(let error):
                     print("\(Thread.current) - api client: failed \(requestUrl)")
@@ -46,16 +42,7 @@ class ApiClient {
                     UiUtils.sharedInstance.errorAlert(
                         text: "Error with internet connection, please retry later."
                     )
-                }
-            
+            }
         }
-    }
-    
-    // func getNotificationName() -> String {
-    //    return self.notificationRequestCompleteName
-    //}
-    
-    func proceedWithJSON(json: JSON) {
-        
     }
 }

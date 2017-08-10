@@ -19,6 +19,9 @@ private let _sharedDataStorage = DataStorage()
 let concurrentQueue = DispatchQueue(label: "concurrent_queue", attributes: .concurrent)
 //let serialQueue = DispatchQueue(label: "serial_queue")
 
+protocol TableViewRefreshDelegate {
+    func reloadTableViewData();
+}
 
 class DataStorage {
     
@@ -41,8 +44,8 @@ class DataStorage {
 
     public var planets: [RealmPlanet] = []
     
-    public var citiesVC: CitiesViewController? = nil
-    public var planetsVC: PlanetsViewController? = nil
+    private var citiesVC: TableViewRefreshDelegate? = nil
+    private var planetsVC: TableViewRefreshDelegate? = nil
     
     private var citiesProvider = CitiesProvider()
     private let realm = try! Realm()
@@ -51,14 +54,25 @@ class DataStorage {
     {
         if AppSettings.sharedInstance.checkIsRealmInitialized() {
             print("\(Thread.current) - data storage: realm is not empty")
+            
             loadDataFromDb()
         }
     }
     
+    public func setPlanetsVC(_ VC: TableViewRefreshDelegate) {
+        planetsVC = VC
+    }
+    
+    public func setCitiesVC(_ VC: TableViewRefreshDelegate) {
+        citiesVC = VC
+    }
+    
     public func loadDataFromDb() {
         print("\(Thread.current) - data storage: loading data from db")
+        
         loadCitiesDataFromDb()
         loadPlanetsDataFromDb()
+        
         refreshViewControllers()
     }
     
@@ -71,12 +85,11 @@ class DataStorage {
         print("\(Thread.current) - data storage: refreshing table views")
 
         if planetsVC != nil {
-            planetsVC!.tableView.reloadData()
+            planetsVC!.reloadTableViewData()
         }
         
         if citiesVC != nil {
-            citiesVC!.cities = getCitiesForPlanet(planetId: citiesVC!.planetId)
-            citiesVC!.tableView.reloadData()
+            citiesVC!.reloadTableViewData()
         }
     }
     
@@ -94,7 +107,7 @@ class DataStorage {
         }
     }
     
-    private func getCitiesForPlanet(planetId: Int) -> [RealmCity] {
+    public func getCitiesForPlanet(planetId: Int) -> [RealmCity] {
         var result: [RealmCity] = []
         
         for city in cities {

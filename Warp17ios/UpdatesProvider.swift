@@ -10,8 +10,8 @@ import Foundation
 import SwiftyJSON
 import Alamofire
 
-class UpdatesProvider: ApiClient {
-    var endpoint = "/updates"
+class UpdatesProvider
+{
     private var updater: Updater = Updater()
     
     init(updater: Updater) {
@@ -20,12 +20,15 @@ class UpdatesProvider: ApiClient {
     
     func loadJson() {
         print("\(Thread.current) - updates provider: calling endpoint...")
-        request(endpoint: endpoint, parameters: Parameters())
-    }
-    
-    override func proceedWithJSON(json: JSON) {
-        print("\(Thread.current) - updates provider: api returned list of content")
-        updater.proceedSync(files: json["content"])        
-        print("\(Thread.current) - updates provider: finished loading data fron json")
+        
+        let client = ApiClient()
+        
+        client.request(endpoint: "/updates", parameters: Parameters()) { json in
+            
+            print("\(Thread.current) - updates provider: api returned list of content")
+            self.updater.proceedSync(files: json["content"])
+            print("\(Thread.current) - updates provider: finished loading data fron json")
+
+        }
     }
 }

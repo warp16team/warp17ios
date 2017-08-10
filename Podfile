@@ -10,6 +10,10 @@ target 'Warp17ios' do
   pod ‘Alamofire’, ‘~> 4.5’
   pod ‘RealmSwift’, ‘~> 2.8’
   pod ’SwiftyJSON’, ‘~> 3.1’
+  pod 'Firebase/Core'
+  pod 'Firebase/Storage'
+  pod 'Firebase/Database’
+  pod 'Firebase/Auth'
 
   target 'Warp17iosTests' do
     inherit! :search_paths

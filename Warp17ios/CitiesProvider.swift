@@ -11,10 +11,9 @@ import SwiftyJSON
 import RealmSwift
 import Alamofire
 
-class CitiesProvider: ApiClient {
+class CitiesProvider
+{
     typealias planetsDict = [Int:RealmPlanet]
-    
-    var endpoint = "/cities"
     
     private let realm = try! Realm()
     private var dataStorage: DataStorage {
@@ -26,37 +25,26 @@ class CitiesProvider: ApiClient {
     func loadJson() {
         print("\(Thread.current) - cities provider: loadJson")
         
-        //NotificationCenter.default.addObserver(self, selector: #selector(downloadComplete), name: NSNotification.Name(rawValue: getNotificationName()), object: nil)
+        let client = ApiClient()
         
-        request(endpoint: endpoint, parameters: Parameters())
-    }
-    
-    //@objc func downloadComplete()
-    //{
-    //    print("\(Thread.current) - cities provider: city api request complete - main thread actions");
-    //
-    //    DispatchQueue.main.sync {
-    //        dataStorage.loadDataFromDb()
-    //    }
-    //}
-    
-    override func proceedWithJSON(json: JSON) {
-        
-        print("\(Thread.current) - cities provider: proceedWithJSON")
-        
-        DispatchQueue.main.async {
-            print("\(Thread.current) - cities provider: save data to realm")
+        client.request(endpoint: "/cities", parameters: Parameters()) { json in
             
-            print(self.realm.configuration.fileURL!)
+            print("\(Thread.current) - cities provider: proceedWithJSON")
             
-            let planets = self.savePlanets(json: json["planets"])
-            self.saveCities(json: json["cities"], planetsDict: planets)
-            
-            AppSettings.sharedInstance.setRealmIsInitialized()
-            
-            print("\(Thread.current) - cities provider: data to realm saved")
-            
-            self.dataStorage.loadDataFromDb()
+            DispatchQueue.main.async {
+                print("\(Thread.current) - cities provider: save data to realm")
+                
+                print(self.realm.configuration.fileURL!)
+                
+                let planets = self.savePlanets(json: json["planets"])
+                self.saveCities(json: json["cities"], planetsDict: planets)
+                
+                AppSettings.sharedInstance.setRealmIsInitialized()
+                
+                print("\(Thread.current) - cities provider: data to realm saved")
+                
+                self.dataStorage.loadDataFromDb()
+            }            
         }
     }
     
