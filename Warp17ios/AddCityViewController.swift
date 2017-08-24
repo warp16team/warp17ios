@@ -37,12 +37,17 @@ class AddCityViewController: UIViewController, MKMapViewDelegate
     }
     
     func updateMap(_ notification: NSNotification) {
-        UiUtils.debugPrint("addCityView", "updateMap")
+        DispatchQueue.main.async {
+            UiUtils.debugPrint("addCityView", "updateMap")
+            UiUtils.debugPrint("addCityView", String(describing: notification.userInfo! ["location"]))
         
-        if let location = notification.userInfo?["location"] as? CLLocation {
-            centerMapOnLocation(location: location)
+            if let location = notification.userInfo?["location"] as? CLLocation {
+                UiUtils.debugPrint("addCityView", "let ok")
+                self.centerMapOnLocation(location: location)
+            } else {
+                    UiUtils.debugPrint("addCityView", "let fail")
+            }
         }
-        
     }
     
     func centerMapOnLocation(location: CLLocation)

@@ -139,12 +139,13 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="30n-q3-Uod">
-                                <rect key="frame" x="16" y="114" width="320" height="366"/>
+                                <rect key="frame" x="0.0" y="114" width="320" height="366"/>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="Bqb-6F-LAm" secondAttribute="trailing" constant="10" id="1d1-nF-nlR"/>
+                            <constraint firstItem="30n-q3-Uod" firstAttribute="leading" secondItem="5un-y7-0kR" secondAttribute="leading" id="20S-Nf-sfG"/>
                             <constraint firstItem="30n-q3-Uod" firstAttribute="width" secondItem="5un-y7-0kR" secondAttribute="width" id="5HT-dt-o7K"/>
                             <constraint firstItem="Bqb-6F-LAm" firstAttribute="top" secondItem="gXK-bg-CWc" secondAttribute="bottom" constant="10" id="C0L-5n-7ey"/>
                             <constraint firstItem="N6V-7o-gig" firstAttribute="centerX" secondItem="5un-y7-0kR" secondAttribute="centerX" constant="-70" id="Wrw-2Y-0Tm"/>
@@ -152,7 +153,6 @@
                             <constraint firstItem="30n-q3-Uod" firstAttribute="top" secondItem="Bqb-6F-LAm" secondAttribute="bottom" constant="10" id="dI3-M1-dMb"/>
                             <constraint firstItem="N6V-7o-gig" firstAttribute="top" secondItem="gXK-bg-CWc" secondAttribute="bottom" constant="10" id="feg-E5-bcQ"/>
                             <constraint firstItem="Bqb-6F-LAm" firstAttribute="leading" secondItem="N6V-7o-gig" secondAttribute="trailing" priority="750" constant="10" id="ymG-As-bCv"/>
-                            <constraint firstItem="30n-q3-Uod" firstAttribute="leading" secondItem="5un-y7-0kR" secondAttribute="leadingMargin" id="zfC-PU-qvN"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Found a new city" id="1Ri-X1-vnG">

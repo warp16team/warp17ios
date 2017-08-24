@@ -24,7 +24,7 @@ class GeoService: NSObject, CLLocationManagerDelegate {
             NotificationCenter.default.post(
                 name: NSNotification.Name(rawValue: String(describing: NotificationEvent.gpsUpdated)),
                 object: nil,
-                userInfo: [location:location]
+                userInfo: ["location":location]
             )
         }
     }
@@ -46,22 +46,51 @@ class GeoService: NSObject, CLLocationManagerDelegate {
             locationManager.desiredAccuracy = kCLLocationAccuracyBest
             //locationManager.requestAlwaysAuthorization()
             locationManager.requestWhenInUseAuthorization()
+            
+            switch CLLocationManager.authorizationStatus() {
+            case .notDetermined:
+                UiUtils.debugPrint("GeoService", "not determined")
+            case .restricted, .denied:
+                UiUtils.debugPrint("GeoService", "no access")
+            case .authorizedAlways,.authorizedWhenInUse:
+                UiUtils.debugPrint("GeoService", "access")
+            }
+        } else {
+            UiUtils.debugPrint("GeoService", "location services are not enabled")
         }
         
         locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
 
     }
     
     func startUpdatingLocation() {
         UiUtils.debugPrint("GeoService", "async startUpdatingLocation call...")
         
-        DispatchQueue.main.async {
+        //DispatchQueue.main.async {
             UiUtils.debugPrint("GeoService", "startUpdatingLocation")
             
             if CLLocationManager.locationServicesEnabled() {
+                UiUtils.debugPrint("GeoService", "locationServicesEnabled")
+                
+                switch CLLocationManager.authorizationStatus()
+                {
+                case .authorizedAlways:
+                    UiUtils.debugPrint("GeoService", "Authorized")
+                case .authorizedWhenInUse:
+                    UiUtils.debugPrint("GeoService", "Authorized when in use")
+                case .denied:
+                    UiUtils.debugPrint("GeoService", "Denied: Location services are not allowed for this app")
+                case .notDetermined:
+                    UiUtils.debugPrint("GeoService", "Not Determined")
+                    self.locationManager.requestWhenInUseAuthorization()
+                case .restricted:
+                    UiUtils.debugPrint("GeoService", "Restricted: Location services are not allowed for this app")
+                }
+                
                 self.locationManager.startUpdatingLocation()
             }
-        }
+        //}
         
     }
     
@@ -79,7 +108,7 @@ class GeoService: NSObject, CLLocationManagerDelegate {
             let coordinate2 = CLLocation(latitude: currentLocation.latitude, longitude: currentLocation.longitude)
             
             coder.reverseGeocodeLocation(coordinate2) { (myPlaces, Error) -> Void in
-                print(myPlaces!)
+                //print(myPlaces!)
                 
                 if let place = myPlaces?.first {
                     print(place.locality ?? "no locality")

@@ -324,6 +324,11 @@
 					044B1F631F139E3E00B33677 = {
 						CreatedOnToolsVersion = 8.3.3;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 0;
+							};
+						};
 					};
 					044B1F771F139E3E00B33677 = {
 						CreatedOnToolsVersion = 8.3.3;
