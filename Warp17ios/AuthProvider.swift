@@ -16,17 +16,17 @@ import Alamofire
 class AuthProvider
 {
     func fetchToken() {
-        print("\(Thread.current) - auth provider: calling endpoint...")
+        UiUtils.debugPrint("auth provider", "calling endpoint...")
         var params: Parameters = [:]
+        
         params["appId"] = AppSettings.sharedInstance.getAppId()
+        UiUtils.debugPrint("auth provider", "appId = \(String(describing: params["appId"]))")
         
         let client = ApiClient()
         
         client.request(endpoint: "/auth", parameters: params, method: .post) { json in
-            
-            print(json)
-            
-            print("\(Thread.current) - auth provider: success, got token")
+                        
+            UiUtils.debugPrint("auth provider", "success, got token \(json["token"].stringValue)")
             ApiClient.token = json["token"].stringValue
             
             NotificationCenter.default.post(

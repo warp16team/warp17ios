@@ -16,12 +16,11 @@
 		044B1F881F139E3E00B33677 /* Warp17iosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044B1F871F139E3E00B33677 /* Warp17iosUITests.swift */; };
 		044B1F961F17A5EC00B33677 /* CitiesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044B1F951F17A5EC00B33677 /* CitiesProvider.swift */; };
 		044B1F981F19475600B33677 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044B1F971F19475600B33677 /* ApiClient.swift */; };
-		044B1FA21F1954A900B33677 /* RealmPlanet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044B1FA11F1954A900B33677 /* RealmPlanet.swift */; };
 		044B1FA41F1954BD00B33677 /* RealmCity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044B1FA31F1954BD00B33677 /* RealmCity.swift */; };
 		044B1FA61F1AA18F00B33677 /* DataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044B1FA51F1AA18F00B33677 /* DataStorage.swift */; };
 		044B1FA81F1AA27200B33677 /* PlanetsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044B1FA71F1AA27200B33677 /* PlanetsViewController.swift */; };
 		044B1FAA1F1D3A6F00B33677 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044B1FA91F1D3A6F00B33677 /* AppSettings.swift */; };
-		044B1FAE1F1E9F0200B33677 /* AddCityTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044B1FAD1F1E9F0200B33677 /* AddCityTableViewController.swift */; };
+		044B1FAE1F1E9F0200B33677 /* AddCityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044B1FAD1F1E9F0200B33677 /* AddCityViewController.swift */; };
 		044B1FB01F2142E000B33677 /* UiUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044B1FAF1F2142E000B33677 /* UiUtils.swift */; };
 		044B1FB21F21478100B33677 /* Updater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044B1FB11F21478100B33677 /* Updater.swift */; };
 		04AA98231F2228CA00A34E60 /* UpdatesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AA98221F2228CA00A34E60 /* UpdatesProvider.swift */; };
@@ -29,6 +28,11 @@
 		04FDFC4F1F327828000B2730 /* NotificationEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FDFC4E1F327828000B2730 /* NotificationEvent.swift */; };
 		04FDFC511F327A4C000B2730 /* AuthProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FDFC501F327A4C000B2730 /* AuthProvider.swift */; };
 		04FDFC551F3C491F000B2730 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04FDFC541F3C491F000B2730 /* GoogleService-Info.plist */; };
+		04FDFC571F40EC1A000B2730 /* CityPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FDFC561F40EC1A000B2730 /* CityPageViewController.swift */; };
+		04FDFC5A1F488AA6000B2730 /* CityPopulationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FDFC591F488AA6000B2730 /* CityPopulationViewController.swift */; };
+		04FDFC621F4DE720000B2730 /* RealmPlanet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FDFC611F4DE720000B2730 /* RealmPlanet.swift */; };
+		04FDFC641F4DE76A000B2730 /* CityFoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FDFC631F4DE76A000B2730 /* CityFoodViewController.swift */; };
+		04FDFC661F4F59A1000B2730 /* GeoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FDFC651F4F59A1000B2730 /* GeoService.swift */; };
 		30D0A751983CC8FFEF37EF10 /* Pods_Warp17iosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2381CE6B71F3FAFC3E7399F9 /* Pods_Warp17iosTests.framework */; };
 		3C83B0FA577BD4174500E3A8 /* Pods_Warp17ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87876C34703F0E8548EAA6F6 /* Pods_Warp17ios.framework */; };
 		CEBF801440C5F3C636B58DB7 /* Pods_Warp17iosUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAECC8E6FCE9804B93664C93 /* Pods_Warp17iosUITests.framework */; };
@@ -67,12 +71,11 @@
 		044B1F891F139E3E00B33677 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		044B1F951F17A5EC00B33677 /* CitiesProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CitiesProvider.swift; sourceTree = "<group>"; };
 		044B1F971F19475600B33677 /* ApiClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
-		044B1FA11F1954A900B33677 /* RealmPlanet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmPlanet.swift; sourceTree = "<group>"; };
 		044B1FA31F1954BD00B33677 /* RealmCity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmCity.swift; sourceTree = "<group>"; };
 		044B1FA51F1AA18F00B33677 /* DataStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStorage.swift; sourceTree = "<group>"; };
 		044B1FA71F1AA27200B33677 /* PlanetsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanetsViewController.swift; sourceTree = "<group>"; };
 		044B1FA91F1D3A6F00B33677 /* AppSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
-		044B1FAD1F1E9F0200B33677 /* AddCityTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCityTableViewController.swift; sourceTree = "<group>"; };
+		044B1FAD1F1E9F0200B33677 /* AddCityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCityViewController.swift; sourceTree = "<group>"; };
 		044B1FAF1F2142E000B33677 /* UiUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UiUtils.swift; sourceTree = "<group>"; };
 		044B1FB11F21478100B33677 /* Updater.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Updater.swift; sourceTree = "<group>"; };
 		04AA98221F2228CA00A34E60 /* UpdatesProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdatesProvider.swift; sourceTree = "<group>"; };
@@ -80,6 +83,11 @@
 		04FDFC4E1F327828000B2730 /* NotificationEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationEvent.swift; sourceTree = "<group>"; };
 		04FDFC501F327A4C000B2730 /* AuthProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthProvider.swift; sourceTree = "<group>"; };
 		04FDFC541F3C491F000B2730 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		04FDFC561F40EC1A000B2730 /* CityPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityPageViewController.swift; sourceTree = "<group>"; };
+		04FDFC591F488AA6000B2730 /* CityPopulationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityPopulationViewController.swift; sourceTree = "<group>"; };
+		04FDFC611F4DE720000B2730 /* RealmPlanet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmPlanet.swift; sourceTree = "<group>"; };
+		04FDFC631F4DE76A000B2730 /* CityFoodViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityFoodViewController.swift; sourceTree = "<group>"; };
+		04FDFC651F4F59A1000B2730 /* GeoService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeoService.swift; sourceTree = "<group>"; };
 		10D6F2F023DA43BFDCC007E2 /* Pods-Warp17iosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Warp17iosTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Warp17iosTests/Pods-Warp17iosTests.debug.xcconfig"; sourceTree = "<group>"; };
 		2381CE6B71F3FAFC3E7399F9 /* Pods_Warp17iosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Warp17iosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		62F25AC2708B1736B409098E /* Pods-Warp17ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Warp17ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Warp17ios/Pods-Warp17ios.debug.xcconfig"; sourceTree = "<group>"; };
@@ -157,14 +165,15 @@
 		044B1F661F139E3E00B33677 /* Warp17ios */ = {
 			isa = PBXGroup;
 			children = (
+				04FDFC581F4889FC000B2730 /* CityInfo */,
 				04FDFC531F3B0F21000B2730 /* Realm */,
 				04FDFC521F3B0E67000B2730 /* Api */,
 				044B1F671F139E3E00B33677 /* AppDelegate.swift */,
+				044B1F691F139E3E00B33677 /* CitiesViewController.swift */,
 				04FDFC4E1F327828000B2730 /* NotificationEvent.swift */,
 				044B1FB11F21478100B33677 /* Updater.swift */,
-				044B1F691F139E3E00B33677 /* CitiesViewController.swift */,
 				044B1F6B1F139E3E00B33677 /* Main.storyboard */,
-				044B1FAD1F1E9F0200B33677 /* AddCityTableViewController.swift */,
+				044B1FAD1F1E9F0200B33677 /* AddCityViewController.swift */,
 				044B1FAF1F2142E000B33677 /* UiUtils.swift */,
 				044B1F6E1F139E3E00B33677 /* Assets.xcassets */,
 				04FDFC541F3C491F000B2730 /* GoogleService-Info.plist */,
@@ -173,6 +182,7 @@
 				044B1FA51F1AA18F00B33677 /* DataStorage.swift */,
 				044B1FA91F1D3A6F00B33677 /* AppSettings.swift */,
 				044B1FA71F1AA27200B33677 /* PlanetsViewController.swift */,
+				04FDFC651F4F59A1000B2730 /* GeoService.swift */,
 			);
 			path = Warp17ios;
 			sourceTree = "<group>";
@@ -210,10 +220,20 @@
 		04FDFC531F3B0F21000B2730 /* Realm */ = {
 			isa = PBXGroup;
 			children = (
-				044B1FA11F1954A900B33677 /* RealmPlanet.swift */,
 				044B1FA31F1954BD00B33677 /* RealmCity.swift */,
+				04FDFC611F4DE720000B2730 /* RealmPlanet.swift */,
 			);
 			name = Realm;
+			sourceTree = "<group>";
+		};
+		04FDFC581F4889FC000B2730 /* CityInfo */ = {
+			isa = PBXGroup;
+			children = (
+				04FDFC591F488AA6000B2730 /* CityPopulationViewController.swift */,
+				04FDFC561F40EC1A000B2730 /* CityPageViewController.swift */,
+				04FDFC631F4DE76A000B2730 /* CityFoodViewController.swift */,
+			);
+			name = CityInfo;
 			sourceTree = "<group>";
 		};
 		B6681514905F5126274C74EA /* Frameworks */ = {
@@ -511,16 +531,20 @@
 				044B1FA41F1954BD00B33677 /* RealmCity.swift in Sources */,
 				044B1F6A1F139E3E00B33677 /* CitiesViewController.swift in Sources */,
 				04AA98231F2228CA00A34E60 /* UpdatesProvider.swift in Sources */,
-				044B1FAE1F1E9F0200B33677 /* AddCityTableViewController.swift in Sources */,
-				044B1FA21F1954A900B33677 /* RealmPlanet.swift in Sources */,
+				04FDFC661F4F59A1000B2730 /* GeoService.swift in Sources */,
+				044B1FAE1F1E9F0200B33677 /* AddCityViewController.swift in Sources */,
 				044B1FAA1F1D3A6F00B33677 /* AppSettings.swift in Sources */,
 				044B1FB21F21478100B33677 /* Updater.swift in Sources */,
+				04FDFC5A1F488AA6000B2730 /* CityPopulationViewController.swift in Sources */,
 				044B1F681F139E3E00B33677 /* AppDelegate.swift in Sources */,
+				04FDFC641F4DE76A000B2730 /* CityFoodViewController.swift in Sources */,
 				044B1FA81F1AA27200B33677 /* PlanetsViewController.swift in Sources */,
 				04AA98271F32739400A34E60 /* RegisterProvider.swift in Sources */,
 				04FDFC511F327A4C000B2730 /* AuthProvider.swift in Sources */,
 				04FDFC4F1F327828000B2730 /* NotificationEvent.swift in Sources */,
 				044B1FB01F2142E000B33677 /* UiUtils.swift in Sources */,
+				04FDFC621F4DE720000B2730 /* RealmPlanet.swift in Sources */,
+				04FDFC571F40EC1A000B2730 /* CityPageViewController.swift in Sources */,
 				044B1F961F17A5EC00B33677 /* CitiesProvider.swift in Sources */,
 				044B1FA61F1AA18F00B33677 /* DataStorage.swift in Sources */,
 				044B1F981F19475600B33677 /* ApiClient.swift in Sources */,

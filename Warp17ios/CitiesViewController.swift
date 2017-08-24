@@ -10,20 +10,22 @@ import UIKit
 
 class CitiesViewController: UITableViewController, TableViewRefreshDelegate {
     
-    public var planetId: Int = 0
+    //public var planetId: Int = 0
     public var cities: [RealmCity] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("showing cities for planetId \(planetId)")
+        UiUtils.debugPrint("cities view", "showing cities for planetId \(DataStorage.sharedDataStorage.currentPlanetId)")
         
         DataStorage.sharedDataStorage.setCitiesVC(self)
         DataStorage.sharedDataStorage.refreshViewControllers()
     }
     
     public func reloadTableViewData() {
-        cities = DataStorage.sharedDataStorage.getCitiesForPlanet(planetId: planetId)
+        cities = DataStorage.sharedDataStorage.getCitiesForPlanet(
+            planetId: DataStorage.sharedDataStorage.currentPlanetId
+        )
         tableView.reloadData()
     }
 
@@ -40,11 +42,13 @@ class CitiesViewController: UITableViewController, TableViewRefreshDelegate {
         return 1
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    {
         return cities.count
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+    {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cityCell", for: indexPath)
         
         cell.textLabel?.text = cities[indexPath.row].name
@@ -56,5 +60,20 @@ class CitiesViewController: UITableViewController, TableViewRefreshDelegate {
     @IBAction func returnToCitiesList(segue: UIStoryboardSegue) {
         
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        //if segue.identifier == "showCityInfo" {
+        
+        if let indexPath = tableView.indexPathForSelectedRow {
+            DataStorage.sharedDataStorage.currentCityId = cities[indexPath.row].id
+        //
+        //        if let destinationVC = segue.destination as? CityPageViewController{
+        //            destinationVC.city = cities[indexPath.row]
+        //        }
+        }
+        //}
+    }
+
 }
 

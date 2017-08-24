@@ -23,22 +23,28 @@ class ApiClient {
         var params = parameters
         params["token"] = ApiClient.token
         
-        print("\(Thread.current) - api client: alamofire calling \(requestUrl)...")
+        UiUtils.debugPrint("api client", "alamofire calling \(requestUrl)...")
         
         Alamofire.request(requestUrl, method: method, parameters: params).validate().responseJSON { response in
             switch response.result {
                 case .success(let value):
-                    print("\(Thread.current) - api client: alamofire calling \(requestUrl) success!")
-                    
+                    UiUtils.debugPrint("api client", "alamofire calling \(requestUrl) success!")
+                
                     self.queue.async {
-                        print("\(Thread.current) - api client: alamofire calling \(requestUrl) - api queue async -> proceed with json closure...")
                         
+                        UiUtils.debugPrint("api client", "alamofire calling \(requestUrl) - api queue async -> proceed with json closure...")
+                    
                         completion(JSON(value))
                     }
                 case .failure(let error):
-                    print("\(Thread.current) - api client: failed \(requestUrl)")
+                    UiUtils.debugPrint("api client", ": failed \(requestUrl)")
+                    
                     debugPrint(response)
-                    print(response.value)
+                    print(error)
+                    if let data = response.data {
+                        let json = String(data: data, encoding: String.Encoding.utf8)
+                        print("Failure Response: \(json)")
+                    }
                     UiUtils.sharedInstance.errorAlert(
                         text: "Error with internet connection, please retry later."
                     )

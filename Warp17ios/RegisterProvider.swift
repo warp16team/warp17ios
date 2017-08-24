@@ -13,7 +13,7 @@ import Alamofire
 class RegisterProvider
 {
     func createAppId() {
-        print("\(Thread.current) - register provider: calling endpoint...")
+        UiUtils.debugPrint("register provider", "calling endpoint...")
         
         let client = ApiClient()
         
@@ -22,7 +22,7 @@ class RegisterProvider
             print(json)
             AppSettings.sharedInstance.setAppId(appId: json["appId"].stringValue)
             
-            print("\(Thread.current) - register provider: success, ready to auth")
+            UiUtils.debugPrint("register provider", "success, ready to auth")
             NotificationCenter.default.post(
                 name: NSNotification.Name(rawValue: String(describing: NotificationEvent.readyToAuth)),
                 object: nil

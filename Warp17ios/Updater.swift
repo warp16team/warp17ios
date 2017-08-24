@@ -149,22 +149,26 @@ class Updater {
     }
     
     private func downloadContentFile(_ filename: String) {
-        print("\(Thread.current) - updater: downloading content file \(filename)")
+        UiUtils.debugPrint("updater", "downloading content file \(filename)")
+        
         let destination = DownloadRequest.suggestedDownloadDestination(for: .documentDirectory)
         
         Alamofire.download("https://warp16.ru/ios/content/" + filename, to: destination)
             .downloadProgress(queue: downloadTasksQueue) { progress in
-                print("\(Thread.current) - updater: Download content file \(filename) progress: \(progress.fractionCompleted)")
+                
+                UiUtils.debugPrint("updater", "Download content file \(filename) progress: \(progress.fractionCompleted)")
+                
                 // todo обновление прогрессбара загрузки одного файла
             }
             .responseData { response in
                 if let error = response.error {
                     debugPrint(response)
-                    print("\(Thread.current) - updater: download \(filename) failed with error: \(error)")
+                    UiUtils.debugPrint("updater", "download \(filename) failed with error: \(error)")
+                    
                     self.haveErrorsDownloadingContentFiles = true
                 }else{
-                    print("\(Thread.current) - updater: content file \(filename) downloaded")
-                    
+                    UiUtils.debugPrint("updater", "content file \(filename) downloaded")
+
                     try! FileManager.default.moveItem(atPath: NSHomeDirectory() + "/Documents/" + filename, toPath: self.getPathForContentFile(filename))
                 }
         }

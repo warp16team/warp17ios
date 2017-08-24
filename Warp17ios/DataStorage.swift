@@ -29,7 +29,7 @@ class DataStorage {
         return _sharedDataStorage
     }
     //    --------------------------------------------
-    public var cities: [RealmCity] = []
+    public var citiesById: [Int: RealmCity] = [:]
     //private var _cities: [RealmCity] = []
     //
     //public var cities: [RealmCity] {
@@ -43,6 +43,7 @@ class DataStorage {
     
 
     public var planets: [RealmPlanet] = []
+    public var citiesIdsByPlanetId: [Int: [Int]] = [:]
     
     private var citiesVC: TableViewRefreshDelegate? = nil
     private var planetsVC: TableViewRefreshDelegate? = nil
@@ -50,10 +51,13 @@ class DataStorage {
     private var citiesProvider = CitiesProvider()
     private let realm = try! Realm()
     
+    public var currentPlanetId: Int = 0
+    public var currentCityId: Int = 0
+    
     init()
     {
         if AppSettings.sharedInstance.checkIsRealmInitialized() {
-            print("\(Thread.current) - data storage: realm is not empty")
+            UiUtils.debugPrint("data storage", "realm is not empty")
             
             loadDataFromDb()
         }
@@ -67,8 +71,13 @@ class DataStorage {
         citiesVC = VC
     }
     
+    public func getCurrentCity() -> RealmCity
+    {
+        return citiesById[currentCityId]!
+    }
+    
     public func loadDataFromDb() {
-        print("\(Thread.current) - data storage: loading data from db")
+        UiUtils.debugPrint("data storage", "loading data from db")
         
         loadCitiesDataFromDb()
         loadPlanetsDataFromDb()
@@ -77,12 +86,12 @@ class DataStorage {
     }
     
     public func loadDataFromApi() {
-        print("\(Thread.current) - data storage: loading data from api")
+        UiUtils.debugPrint("data storage", "loading data from api")
         citiesProvider.loadJson()
     }
     
     public func refreshViewControllers() {
-        print("\(Thread.current) - data storage: refreshing table views")
+        UiUtils.debugPrint("data storage", "refreshing table views")
 
         if planetsVC != nil {
             planetsVC!.reloadTableViewData()
@@ -94,14 +103,23 @@ class DataStorage {
     }
     
     private func loadCitiesDataFromDb() {
-        cities = []
+        citiesById.removeAll(keepingCapacity: true)
+        citiesIdsByPlanetId.removeAll(keepingCapacity: true)
+        
         for city in realm.objects(RealmCity.self) {
-            cities.append(city)
+            citiesById[city.id] = city
+            let planetId = city.planet!.id
+            if citiesIdsByPlanetId[planetId] == nil {
+                citiesIdsByPlanetId[planetId] = [city.id]
+            } else {
+                citiesIdsByPlanetId[(city.planet?.id)!]?.append(city.id)
+            }
         }
     }
     
     private func loadPlanetsDataFromDb() {
         planets = []
+        
         for planet in realm.objects(RealmPlanet.self) {
             planets.append(planet)
         }
@@ -110,10 +128,10 @@ class DataStorage {
     public func getCitiesForPlanet(planetId: Int) -> [RealmCity] {
         var result: [RealmCity] = []
         
-        for city in cities {
-            if city.planet!.id == planetId {
-                result.append(city)
-            }
+        let citiesIdsOfPlanet = citiesIdsByPlanetId[planetId] ?? []
+        
+        for cityId in citiesIdsOfPlanet {
+            result.append(citiesById[cityId]!)
         }
         
         return result

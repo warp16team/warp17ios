@@ -21,6 +21,35 @@ class UiUtils {
         appDelegate.showAlertGlobally(alert)
     }
     
+    public static func debugPrint(_ caption: String, _ text: String) {
+        let currentThread = getPrettyCurrentThreadDescription()
+        
+        print("\(currentThread) - \(caption): \(text)")
+    }
+    
+    
+    private static func getPrettyCurrentThreadDescription() -> String {
+        let raw: String = "\(Thread.current)"
+        let text = getSplittedText(before: "{", after: "}", text: raw)
+        let text2 = getSplittedText(before: "number = ", after: ",", text: text)
+        
+        let firstSplit: [String] = text.components(separatedBy: ", name = ")
+        
+        return text2 + "|" + firstSplit[1]
+    }
+    
+    private static func getSplittedText(before: String, after: String, text: String) -> String
+    {
+        let firstSplit: [String] = text.components(separatedBy: before)
+        if firstSplit.count > 1 {
+            let secondSplit: [String] = firstSplit[1].components(separatedBy: after)
+            if secondSplit.count > 0 {
+                return secondSplit[0]
+            }
+        }
+        
+        return text
+    }
 //    public func showLoader() {
 //        let alert = UIAlertController(title: nil, message: "Please wait...", preferredStyle: .alert)
 //        

@@ -19,15 +19,15 @@ class UpdatesProvider
     }
     
     func loadJson() {
-        print("\(Thread.current) - updates provider: calling endpoint...")
+        UiUtils.debugPrint("updates provider", "calling endpoint...")
         
         let client = ApiClient()
         
         client.request(endpoint: "/updates", parameters: Parameters()) { json in
             
-            print("\(Thread.current) - updates provider: api returned list of content")
+            UiUtils.debugPrint("updates provider", "api returned list of content")
             self.updater.proceedSync(files: json["content"])
-            print("\(Thread.current) - updates provider: finished loading data fron json")
+            UiUtils.debugPrint("updates provider", "finished loading data fron json")
 
         }
     }

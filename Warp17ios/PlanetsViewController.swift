@@ -96,7 +96,8 @@ class PlanetsViewController: UITableViewController, TableViewRefreshDelegate {
         if segue.identifier == "planetCities" {
             if let indexPath = tableView.indexPathForSelectedRow {
                 let destinationVC = segue.destination as! CitiesViewController
-                destinationVC.planetId = dataStorage.planets[indexPath.row].id
+                dataStorage.currentPlanetId = dataStorage.planets[indexPath.row].id
+                //destinationVC.planetId = dataStorage.planets[indexPath.row].id
             }
             
         }

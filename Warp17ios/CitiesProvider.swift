@@ -22,17 +22,38 @@ class CitiesProvider
         }
     }
     
+    func createCity(planetId: Int, latitude: Float, longitude: Float, name: String) {
+        UiUtils.debugPrint("cities provider", "create city")
+        
+        let client = ApiClient()
+        var parameters = Parameters()
+        parameters["planetId"] = planetId
+        parameters["lat"] = latitude
+        parameters["long"] = longitude
+        parameters["name"] = name
+        
+        client.request(endpoint: "/cities", parameters: parameters, method: .post) { json in
+            
+            UiUtils.debugPrint("cities provider", "cityCreated")
+            
+            DispatchQueue.main.async {
+                self.loadJson()
+            }
+        }
+
+    }
+    
     func loadJson() {
-        print("\(Thread.current) - cities provider: loadJson")
+        UiUtils.debugPrint("cities provider", "loadJson")
         
         let client = ApiClient()
         
         client.request(endpoint: "/cities", parameters: Parameters()) { json in
             
-            print("\(Thread.current) - cities provider: proceedWithJSON")
+            UiUtils.debugPrint("cities provider", "proceedWithJSON")
             
             DispatchQueue.main.async {
-                print("\(Thread.current) - cities provider: save data to realm")
+                UiUtils.debugPrint("cities provider", "save data to realm")
                 
                 print(self.realm.configuration.fileURL!)
                 
@@ -41,7 +62,7 @@ class CitiesProvider
                 
                 AppSettings.sharedInstance.setRealmIsInitialized()
                 
-                print("\(Thread.current) - cities provider: data to realm saved")
+                UiUtils.debugPrint("cities provider", "data to realm saved")
                 
                 self.dataStorage.loadDataFromDb()
             }            
@@ -61,6 +82,7 @@ class CitiesProvider
                 realm.add(planet, update: true)
             }
         }
+        // todo delete wrong entries from db
         
         return planets
     }
@@ -77,5 +99,6 @@ class CitiesProvider
                 realm.add(city, update: true)
             }
         }
+        // todo delete wrong entries from db
     }
 }

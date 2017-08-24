@@ -13,4 +13,6 @@ enum NotificationEvent: String
     case applicationRegistered = "applicationRegistered"
     case readyToAuth = "readyToAuth"
     case authenticated = "authenticated"
+    case gpsUpdated = "gpsUpdated"
+    
 }
