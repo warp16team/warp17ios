@@ -96,11 +96,15 @@ class GeoService: NSObject, CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
     {
+        guard let mostRecentLocation = locations.last else {
+            return
+        }
+        
         UiUtils.debugPrint("GeoService", "didUpdateLocations")
         
-        if let coordinate = locations.last?.coordinate {
-            location = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
-        }
+        let coordinate = mostRecentLocation.coordinate
+        
+        location = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
         
         UiUtils.debugPrint("GeoService", "location: \(location)")
 

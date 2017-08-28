@@ -36,17 +36,25 @@ class AddCityViewController: UIViewController, MKMapViewDelegate
         
     }
     
-    func updateMap(_ notification: NSNotification) {
-        DispatchQueue.main.async {
-            UiUtils.debugPrint("addCityView", "updateMap")
-            UiUtils.debugPrint("addCityView", String(describing: notification.userInfo! ["location"]))
+    func updateMap(_ notification: NSNotification)
+    {
+        guard let location = notification.userInfo?["location"] as? CLLocation
+        else {
+            UiUtils.debugPrint("addCityView", "let fail")
+            return
+        }
         
-            if let location = notification.userInfo?["location"] as? CLLocation {
-                UiUtils.debugPrint("addCityView", "let ok")
+        UiUtils.debugPrint("addCityView", "let ok")
+        
+        if UIApplication.shared.applicationState == .active {
+            DispatchQueue.main.async {
+                UiUtils.debugPrint("addCityView", "updateMap")
+                UiUtils.debugPrint("addCityView", String(describing: location))
                 self.centerMapOnLocation(location: location)
-            } else {
-                    UiUtils.debugPrint("addCityView", "let fail")
+                
             }
+        } else {
+            print("App is backgrounded. New location is %@", location)
         }
     }
     
@@ -76,7 +84,11 @@ class AddCityViewController: UIViewController, MKMapViewDelegate
         } else {
             
             let citiesProvider = CitiesProvider()
-            citiesProvider.createCity(planetId: DataStorage.sharedDataStorage.currentPlanetId, latitude: 51.51, longitude: 52.52, name: newCityName.text!)
+            citiesProvider.createCity(
+                planetId: DataStorage.sharedDataStorage.currentPlanetId,
+                location: GeoService.shared.location,
+                name: newCityName.text!
+            )
             
             self.performSegue(withIdentifier: "returnToCitiesList", sender: nil)
         }

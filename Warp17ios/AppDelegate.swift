@@ -19,6 +19,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         FirebaseApp.configure()
+        
+        UIApplication.shared.setMinimumBackgroundFetchInterval(
+            UIApplicationBackgroundFetchIntervalMinimum)
+        
         return true
     }
 
@@ -53,6 +57,42 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         alertWindow.makeKeyAndVisible()
         alertWindow.rootViewController?.present(alert, animated: true, completion: nil)
     }
-
+    
+    func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        
+        UiUtils.debugPrint("background fetch", "started at \(Date())")
+        
+        let lastSync = AppSettings.sharedInstance.getLastSyncAt()
+        
+        if lastSync != nil && abs(lastSync!.timeIntervalSinceNow) < 30 {
+            UiUtils.debugPrint("background fetch", "sync time < 30 sec ago -> .noData")
+            completionHandler(.noData)
+            return
+        }
+        
+        let timer = DispatchSource.makeTimerSource(queue: DispatchQueue.main)
+        timer.scheduleRepeating(deadline: .now(), interval: .seconds(29), leeway: .seconds(1))
+        timer.setEventHandler {
+            UiUtils.debugPrint("background fetch", "time limit exceeded")
+            if EventsUpdater.shared.eventsFetchComplete {
+                UiUtils.debugPrint("background fetch", "return .newData")
+                completionHandler(.newData)
+            } else {
+                UiUtils.debugPrint("background fetch", "return .failed")
+                completionHandler(.failed)
+            }
+            
+            return
+        }
+        timer.resume()
+        
+        let updater = EventsUpdater()
+        updater.proceed()
+        
+        UiUtils.debugPrint("background fetch", "updater proceed called, return .newData")
+        completionHandler(.newData)
+        
+        return
+    }
 }
 

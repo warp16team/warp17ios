@@ -23,6 +23,9 @@
 		044B1FAE1F1E9F0200B33677 /* AddCityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044B1FAD1F1E9F0200B33677 /* AddCityViewController.swift */; };
 		044B1FB01F2142E000B33677 /* UiUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044B1FAF1F2142E000B33677 /* UiUtils.swift */; };
 		044B1FB21F21478100B33677 /* Updater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044B1FB11F21478100B33677 /* Updater.swift */; };
+		047992B11F54AF9B00E9F90D /* EventsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047992B01F54AF9B00E9F90D /* EventsProvider.swift */; };
+		047992B31F54B49300E9F90D /* EventsUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047992B21F54B49300E9F90D /* EventsUpdater.swift */; };
+		047992B51F54BA7800E9F90D /* GameEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047992B41F54BA7800E9F90D /* GameEvent.swift */; };
 		04AA98231F2228CA00A34E60 /* UpdatesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AA98221F2228CA00A34E60 /* UpdatesProvider.swift */; };
 		04AA98271F32739400A34E60 /* RegisterProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AA98261F32739400A34E60 /* RegisterProvider.swift */; };
 		04FDFC4F1F327828000B2730 /* NotificationEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FDFC4E1F327828000B2730 /* NotificationEvent.swift */; };
@@ -78,6 +81,9 @@
 		044B1FAD1F1E9F0200B33677 /* AddCityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCityViewController.swift; sourceTree = "<group>"; };
 		044B1FAF1F2142E000B33677 /* UiUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UiUtils.swift; sourceTree = "<group>"; };
 		044B1FB11F21478100B33677 /* Updater.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Updater.swift; sourceTree = "<group>"; };
+		047992B01F54AF9B00E9F90D /* EventsProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsProvider.swift; sourceTree = "<group>"; };
+		047992B21F54B49300E9F90D /* EventsUpdater.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsUpdater.swift; sourceTree = "<group>"; };
+		047992B41F54BA7800E9F90D /* GameEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameEvent.swift; sourceTree = "<group>"; };
 		04AA98221F2228CA00A34E60 /* UpdatesProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdatesProvider.swift; sourceTree = "<group>"; };
 		04AA98261F32739400A34E60 /* RegisterProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterProvider.swift; sourceTree = "<group>"; };
 		04FDFC4E1F327828000B2730 /* NotificationEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationEvent.swift; sourceTree = "<group>"; };
@@ -170,6 +176,7 @@
 				04FDFC521F3B0E67000B2730 /* Api */,
 				044B1F671F139E3E00B33677 /* AppDelegate.swift */,
 				044B1F691F139E3E00B33677 /* CitiesViewController.swift */,
+				047992B41F54BA7800E9F90D /* GameEvent.swift */,
 				04FDFC4E1F327828000B2730 /* NotificationEvent.swift */,
 				044B1FB11F21478100B33677 /* Updater.swift */,
 				044B1F6B1F139E3E00B33677 /* Main.storyboard */,
@@ -183,6 +190,7 @@
 				044B1FA91F1D3A6F00B33677 /* AppSettings.swift */,
 				044B1FA71F1AA27200B33677 /* PlanetsViewController.swift */,
 				04FDFC651F4F59A1000B2730 /* GeoService.swift */,
+				047992B21F54B49300E9F90D /* EventsUpdater.swift */,
 			);
 			path = Warp17ios;
 			sourceTree = "<group>";
@@ -209,6 +217,7 @@
 			isa = PBXGroup;
 			children = (
 				044B1F951F17A5EC00B33677 /* CitiesProvider.swift */,
+				047992B01F54AF9B00E9F90D /* EventsProvider.swift */,
 				04AA98221F2228CA00A34E60 /* UpdatesProvider.swift */,
 				04AA98261F32739400A34E60 /* RegisterProvider.swift */,
 				04FDFC501F327A4C000B2730 /* AuthProvider.swift */,
@@ -325,6 +334,9 @@
 						CreatedOnToolsVersion = 8.3.3;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
 							com.apple.Maps.iOS = {
 								enabled = 0;
 							};
@@ -545,10 +557,13 @@
 				04FDFC641F4DE76A000B2730 /* CityFoodViewController.swift in Sources */,
 				044B1FA81F1AA27200B33677 /* PlanetsViewController.swift in Sources */,
 				04AA98271F32739400A34E60 /* RegisterProvider.swift in Sources */,
+				047992B31F54B49300E9F90D /* EventsUpdater.swift in Sources */,
 				04FDFC511F327A4C000B2730 /* AuthProvider.swift in Sources */,
 				04FDFC4F1F327828000B2730 /* NotificationEvent.swift in Sources */,
+				047992B11F54AF9B00E9F90D /* EventsProvider.swift in Sources */,
 				044B1FB01F2142E000B33677 /* UiUtils.swift in Sources */,
 				04FDFC621F4DE720000B2730 /* RealmPlanet.swift in Sources */,
+				047992B51F54BA7800E9F90D /* GameEvent.swift in Sources */,
 				04FDFC571F40EC1A000B2730 /* CityPageViewController.swift in Sources */,
 				044B1F961F17A5EC00B33677 /* CitiesProvider.swift in Sources */,
 				044B1FA61F1AA18F00B33677 /* DataStorage.swift in Sources */,

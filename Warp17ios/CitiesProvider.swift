@@ -10,6 +10,7 @@ import Foundation
 import SwiftyJSON
 import RealmSwift
 import Alamofire
+import CoreLocation
 
 class CitiesProvider
 {
@@ -22,14 +23,14 @@ class CitiesProvider
         }
     }
     
-    func createCity(planetId: Int, latitude: Float, longitude: Float, name: String) {
+    func createCity(planetId: Int, location: CLLocation, name: String) {
         UiUtils.debugPrint("cities provider", "create city")
         
         let client = ApiClient()
         var parameters = Parameters()
         parameters["planetId"] = planetId
-        parameters["lat"] = latitude
-        parameters["long"] = longitude
+        parameters["lat"] = location.coordinate.latitude
+        parameters["long"] = location.coordinate.longitude
         parameters["name"] = name
         
         client.request(endpoint: "/cities", parameters: parameters, method: .post) { json in

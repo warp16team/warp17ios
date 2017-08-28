@@ -13,8 +13,10 @@ class AppSettings {
     
     private let keyRealmInitialized = "realmInitialized"
     private let keyAppId = "appId"
+    private let keyLastSyncAt = "lastSyncAt"
     private var isRealmInitialized: Bool?
     private var appId: String?
+    private var lastSyncAt: Date?
     
     public func checkIsRealmInitialized() -> Bool {
         if isRealmInitialized == nil {
@@ -52,6 +54,20 @@ class AppSettings {
     public func setAppId(appId value: String) {
         appId = value
         UserDefaults.standard.set(appId, forKey: keyAppId)
+        UserDefaults.standard.synchronize()
+    }
+    
+    public func getLastSyncAt() -> Date? {
+        if lastSyncAt == nil {
+            lastSyncAt = UserDefaults.standard.object(forKey: keyLastSyncAt) as! Date?
+        }
+        
+        return lastSyncAt
+    }
+    
+    public func setLastSyncAt(newSyncAt value: Date) {
+        lastSyncAt = value
+        UserDefaults.standard.set(lastSyncAt, forKey: keyLastSyncAt)
         UserDefaults.standard.synchronize()
     }
 }
