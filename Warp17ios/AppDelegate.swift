@@ -20,6 +20,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FirebaseApp.configure()
         
+        //let settings = UIUserNotificationSettings(forTypes: UIUserNotificationType.Alert, categories: nil)
+        //UIApplication.sharedApplication().registerUserNotificationSettings(settings)
+        
         UIApplication.shared.setMinimumBackgroundFetchInterval(
             UIApplicationBackgroundFetchIntervalMinimum)
         
@@ -58,7 +61,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         alertWindow.rootViewController?.present(alert, animated: true, completion: nil)
     }
     
+    //var semaphore = DispatchSemaphore(value: 0)
+    //var timerTest: Timer? = nil
+    
     func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        
+    //    semaphore = DispatchSemaphore(value: 0)
         
         UiUtils.debugPrint("background fetch", "started at \(Date())")
         
@@ -70,6 +78,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             return
         }
         
+        let updater = EventsUpdater()
+        updater.proceed()
+        
+  //      timerTest = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(onTimer), userInfo: nil, repeats: true)
+        /*
         let timer = DispatchSource.makeTimerSource(queue: DispatchQueue.main)
         timer.scheduleRepeating(deadline: .now(), interval: .seconds(29), leeway: .seconds(1))
         timer.setEventHandler {
@@ -84,15 +97,57 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             return
         }
-        timer.resume()
         
-        let updater = EventsUpdater()
-        updater.proceed()
-        
-        UiUtils.debugPrint("background fetch", "updater proceed called, return .newData")
+        DispatchQueue.main.sync {
+            timer.resume()
+            
+        }
+        UiUtils.debugPrint("background fetch", "timer resume called")
+        */
+        /*repeat {
+            DispatchQueue.main.async {
+                sleep(1)
+                UiUtils.debugPrint("background fetch", "--after 1 seconds")
+            }
+            if EventsUpdater.shared.eventsFetchComplete {
+                UiUtils.debugPrint("background fetch", "eventsFetchComplete!!")
+                UiUtils.debugPrint("background fetch", "return .newData")
+                completionHandler(.newData)
+            }
+        } while (true)
+*/
+        /*let timer = Timer.scheduledTimer(withTimeInterval: 2, repeats: false) { (timer) in
+            UiUtils.debugPrint("background fetch", "after 2 seconds")
+        }
+        RunLoop.current.add(timer, forMode: .commonModes)
+        */
+        //let timeout = DispatchTime.now() + .seconds(29)
+       /* if semaphore.wait(timeout: timeout) == .timedOut {
+            
+            UiUtils.debugPrint("background fetch", "TIMEOUT - return .failed")
+            completionHandler(.failed)
+            timerTest?.invalidate()
+            timerTest = nil
+            return
+        }
+         */
+        //UiUtils.debugPrint("background fetch", "TIMEOUT - return .failed")
+        //completionHandler(.failed)
+        UiUtils.debugPrint("background fetch", "return .newData")
         completionHandler(.newData)
-        
+       // timerTest?.invalidate()
+        //timerTest = nil
         return
     }
+    
+    /*func onTimer()
+    {
+        UiUtils.debugPrint("background fetch", "timer tick")
+        
+        if EventsUpdater.shared.eventsFetchComplete {
+            UiUtils.debugPrint("background fetch", "timer tick - eventsFetchComplete")
+            semaphore.signal()
+        }
+    }*/
 }
 

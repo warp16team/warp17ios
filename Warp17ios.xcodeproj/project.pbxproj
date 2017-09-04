@@ -26,6 +26,10 @@
 		047992B11F54AF9B00E9F90D /* EventsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047992B01F54AF9B00E9F90D /* EventsProvider.swift */; };
 		047992B31F54B49300E9F90D /* EventsUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047992B21F54B49300E9F90D /* EventsUpdater.swift */; };
 		047992B51F54BA7800E9F90D /* GameEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047992B41F54BA7800E9F90D /* GameEvent.swift */; };
+		047992BC1F59D13300E9F90D /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 047992BB1F59D13300E9F90D /* NotificationCenter.framework */; };
+		047992BF1F59D13300E9F90D /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047992BE1F59D13300E9F90D /* TodayViewController.swift */; };
+		047992C21F59D13300E9F90D /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 047992C01F59D13300E9F90D /* MainInterface.storyboard */; };
+		047992C61F59D13300E9F90D /* WarpWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 047992BA1F59D13300E9F90D /* WarpWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		04AA98231F2228CA00A34E60 /* UpdatesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AA98221F2228CA00A34E60 /* UpdatesProvider.swift */; };
 		04AA98271F32739400A34E60 /* RegisterProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AA98261F32739400A34E60 /* RegisterProvider.swift */; };
 		04FDFC4F1F327828000B2730 /* NotificationEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FDFC4E1F327828000B2730 /* NotificationEvent.swift */; };
@@ -56,7 +60,28 @@
 			remoteGlobalIDString = 044B1F631F139E3E00B33677;
 			remoteInfo = Warp17ios;
 		};
+		047992C41F59D13300E9F90D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 044B1F5C1F139E3E00B33677 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 047992B91F59D13300E9F90D;
+			remoteInfo = WarpWidget;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		047992CA1F59D13300E9F90D /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				047992C61F59D13300E9F90D /* WarpWidget.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		044B1F641F139E3E00B33677 /* Warp17ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Warp17ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -84,6 +109,13 @@
 		047992B01F54AF9B00E9F90D /* EventsProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsProvider.swift; sourceTree = "<group>"; };
 		047992B21F54B49300E9F90D /* EventsUpdater.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsUpdater.swift; sourceTree = "<group>"; };
 		047992B41F54BA7800E9F90D /* GameEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameEvent.swift; sourceTree = "<group>"; };
+		047992BA1F59D13300E9F90D /* WarpWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WarpWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		047992BB1F59D13300E9F90D /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		047992BE1F59D13300E9F90D /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		047992C11F59D13300E9F90D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		047992C31F59D13300E9F90D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		047992CB1F59D29300E9F90D /* WarpWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WarpWidget.entitlements; sourceTree = "<group>"; };
+		047992CC1F59D43D00E9F90D /* Warp17ios.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Warp17ios.entitlements; sourceTree = "<group>"; };
 		04AA98221F2228CA00A34E60 /* UpdatesProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdatesProvider.swift; sourceTree = "<group>"; };
 		04AA98261F32739400A34E60 /* RegisterProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterProvider.swift; sourceTree = "<group>"; };
 		04FDFC4E1F327828000B2730 /* NotificationEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationEvent.swift; sourceTree = "<group>"; };
@@ -130,6 +162,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		047992B71F59D13300E9F90D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				047992BC1F59D13300E9F90D /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -152,6 +192,7 @@
 				044B1F661F139E3E00B33677 /* Warp17ios */,
 				044B1F7B1F139E3E00B33677 /* Warp17iosTests */,
 				044B1F861F139E3E00B33677 /* Warp17iosUITests */,
+				047992BD1F59D13300E9F90D /* WarpWidget */,
 				044B1F651F139E3E00B33677 /* Products */,
 				00D5F43190294FF8FAF9FECB /* Pods */,
 				B6681514905F5126274C74EA /* Frameworks */,
@@ -164,6 +205,7 @@
 				044B1F641F139E3E00B33677 /* Warp17ios.app */,
 				044B1F781F139E3E00B33677 /* Warp17iosTests.xctest */,
 				044B1F831F139E3E00B33677 /* Warp17iosUITests.xctest */,
+				047992BA1F59D13300E9F90D /* WarpWidget.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -171,6 +213,7 @@
 		044B1F661F139E3E00B33677 /* Warp17ios */ = {
 			isa = PBXGroup;
 			children = (
+				047992CC1F59D43D00E9F90D /* Warp17ios.entitlements */,
 				04FDFC581F4889FC000B2730 /* CityInfo */,
 				04FDFC531F3B0F21000B2730 /* Realm */,
 				04FDFC521F3B0E67000B2730 /* Api */,
@@ -213,6 +256,17 @@
 			path = Warp17iosUITests;
 			sourceTree = "<group>";
 		};
+		047992BD1F59D13300E9F90D /* WarpWidget */ = {
+			isa = PBXGroup;
+			children = (
+				047992CB1F59D29300E9F90D /* WarpWidget.entitlements */,
+				047992BE1F59D13300E9F90D /* TodayViewController.swift */,
+				047992C01F59D13300E9F90D /* MainInterface.storyboard */,
+				047992C31F59D13300E9F90D /* Info.plist */,
+			);
+			path = WarpWidget;
+			sourceTree = "<group>";
+		};
 		04FDFC521F3B0E67000B2730 /* Api */ = {
 			isa = PBXGroup;
 			children = (
@@ -251,6 +305,7 @@
 				87876C34703F0E8548EAA6F6 /* Pods_Warp17ios.framework */,
 				2381CE6B71F3FAFC3E7399F9 /* Pods_Warp17iosTests.framework */,
 				AAECC8E6FCE9804B93664C93 /* Pods_Warp17iosUITests.framework */,
+				047992BB1F59D13300E9F90D /* NotificationCenter.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -268,10 +323,12 @@
 				044B1F621F139E3E00B33677 /* Resources */,
 				825A56F25E0C267D57373D1C /* [CP] Embed Pods Frameworks */,
 				AF9AE41243982B19FE8AD09D /* [CP] Copy Pods Resources */,
+				047992CA1F59D13300E9F90D /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				047992C51F59D13300E9F90D /* PBXTargetDependency */,
 			);
 			name = Warp17ios;
 			productName = Warp17ios;
@@ -320,6 +377,23 @@
 			productReference = 044B1F831F139E3E00B33677 /* Warp17iosUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		047992B91F59D13300E9F90D /* WarpWidget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 047992C71F59D13300E9F90D /* Build configuration list for PBXNativeTarget "WarpWidget" */;
+			buildPhases = (
+				047992B61F59D13300E9F90D /* Sources */,
+				047992B71F59D13300E9F90D /* Frameworks */,
+				047992B81F59D13300E9F90D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WarpWidget;
+			productName = WarpWidget;
+			productReference = 047992BA1F59D13300E9F90D /* WarpWidget.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -332,8 +406,12 @@
 				TargetAttributes = {
 					044B1F631F139E3E00B33677 = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = JM4PP95PX8;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
 							com.apple.BackgroundModes = {
 								enabled = 1;
 							};
@@ -351,6 +429,16 @@
 						CreatedOnToolsVersion = 8.3.3;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 044B1F631F139E3E00B33677;
+					};
+					047992B91F59D13300E9F90D = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = JM4PP95PX8;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -370,6 +458,7 @@
 				044B1F631F139E3E00B33677 /* Warp17ios */,
 				044B1F771F139E3E00B33677 /* Warp17iosTests */,
 				044B1F821F139E3E00B33677 /* Warp17iosUITests */,
+				047992B91F59D13300E9F90D /* WarpWidget */,
 			);
 		};
 /* End PBXProject section */
@@ -397,6 +486,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		047992B81F59D13300E9F90D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				047992C21F59D13300E9F90D /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -587,6 +684,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		047992B61F59D13300E9F90D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				047992BF1F59D13300E9F90D /* TodayViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -599,6 +704,11 @@
 			isa = PBXTargetDependency;
 			target = 044B1F631F139E3E00B33677 /* Warp17ios */;
 			targetProxy = 044B1F841F139E3E00B33677 /* PBXContainerItemProxy */;
+		};
+		047992C51F59D13300E9F90D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 047992B91F59D13300E9F90D /* WarpWidget */;
+			targetProxy = 047992C41F59D13300E9F90D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -617,6 +727,14 @@
 				044B1F711F139E3E00B33677 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		047992C01F59D13300E9F90D /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				047992C11F59D13300E9F90D /* Base */,
+			);
+			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -721,7 +839,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 62F25AC2708B1736B409098E /* Pods-Warp17ios.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Warp17ios/Warp17ios.entitlements;
+				DEVELOPMENT_TEAM = JM4PP95PX8;
 				INFOPLIST_FILE = Warp17ios/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = warpteam.Warp17ios;
@@ -734,7 +855,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C371F0479B27BE6AF355DD79 /* Pods-Warp17ios.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Warp17ios/Warp17ios.entitlements;
+				DEVELOPMENT_TEAM = JM4PP95PX8;
 				INFOPLIST_FILE = Warp17ios/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = warpteam.Warp17ios;
@@ -801,6 +925,34 @@
 			};
 			name = Release;
 		};
+		047992C81F59D13300E9F90D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = WarpWidget/WarpWidget.entitlements;
+				DEVELOPMENT_TEAM = JM4PP95PX8;
+				INFOPLIST_FILE = WarpWidget/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = warpteam.Warp17ios.WarpWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		047992C91F59D13300E9F90D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = WarpWidget/WarpWidget.entitlements;
+				DEVELOPMENT_TEAM = JM4PP95PX8;
+				INFOPLIST_FILE = WarpWidget/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = warpteam.Warp17ios.WarpWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -839,6 +991,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		047992C71F59D13300E9F90D /* Build configuration list for PBXNativeTarget "WarpWidget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				047992C81F59D13300E9F90D /* Debug */,
+				047992C91F59D13300E9F90D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
