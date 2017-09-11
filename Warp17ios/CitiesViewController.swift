@@ -67,6 +67,12 @@ class CitiesViewController: UITableViewController, TableViewRefreshDelegate {
         
         if let indexPath = tableView.indexPathForSelectedRow {
             DataStorage.sharedDataStorage.currentCityId = cities[indexPath.row].id
+            
+            let defaults = UserDefaults(suiteName: "group.warp17Game")
+            
+            UiUtils.debugPrint("cities vc", "saving user defaults group data")
+            defaults?.set(DataStorage.sharedDataStorage.getCurrentCity().name, forKey: "labelContents")
+            
         //
         //        if let destinationVC = segue.destination as? CityPageViewController{
         //            destinationVC.city = cities[indexPath.row]

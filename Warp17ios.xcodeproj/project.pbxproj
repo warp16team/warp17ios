@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0408DFAC1F6317FD00D95D4C /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0408DFAA1F6317FD00D95D4C /* Interface.storyboard */; };
+		0408DFAE1F6317FD00D95D4C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0408DFAD1F6317FD00D95D4C /* Assets.xcassets */; };
+		0408DFB51F6317FD00D95D4C /* WarpWatch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 0408DFB41F6317FD00D95D4C /* WarpWatch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		0408DFBC1F6317FD00D95D4C /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0408DFBB1F6317FD00D95D4C /* InterfaceController.swift */; };
+		0408DFBE1F6317FD00D95D4C /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0408DFBD1F6317FD00D95D4C /* ExtensionDelegate.swift */; };
+		0408DFC01F6317FD00D95D4C /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0408DFBF1F6317FD00D95D4C /* NotificationController.swift */; };
+		0408DFC21F6317FD00D95D4C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0408DFC11F6317FD00D95D4C /* Assets.xcassets */; };
+		0408DFC61F6317FD00D95D4C /* WarpWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 0408DFA81F6317FD00D95D4C /* WarpWatch.app */; };
+		0408DFD01F671A2A00D95D4C /* WatchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0408DFCF1F671A2A00D95D4C /* WatchManager.swift */; };
 		044B1F681F139E3E00B33677 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044B1F671F139E3E00B33677 /* AppDelegate.swift */; };
 		044B1F6A1F139E3E00B33677 /* CitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044B1F691F139E3E00B33677 /* CitiesViewController.swift */; };
 		044B1F6D1F139E3E00B33677 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 044B1F6B1F139E3E00B33677 /* Main.storyboard */; };
@@ -46,6 +55,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		0408DFB61F6317FD00D95D4C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 044B1F5C1F139E3E00B33677 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0408DFB31F6317FD00D95D4C;
+			remoteInfo = "WarpWatch Extension";
+		};
+		0408DFC41F6317FD00D95D4C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 044B1F5C1F139E3E00B33677 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0408DFA71F6317FD00D95D4C;
+			remoteInfo = WarpWatch;
+		};
 		044B1F791F139E3E00B33677 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 044B1F5C1F139E3E00B33677 /* Project object */;
@@ -70,6 +93,28 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		0408DFCA1F6317FD00D95D4C /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				0408DFB51F6317FD00D95D4C /* WarpWatch Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0408DFCE1F6317FD00D95D4C /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				0408DFC61F6317FD00D95D4C /* WarpWatch.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		047992CA1F59D13300E9F90D /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -84,6 +129,18 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0408DFA81F6317FD00D95D4C /* WarpWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WarpWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0408DFAB1F6317FD00D95D4C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		0408DFAD1F6317FD00D95D4C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0408DFAF1F6317FD00D95D4C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0408DFB41F6317FD00D95D4C /* WarpWatch Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "WarpWatch Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0408DFBA1F6317FD00D95D4C /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		0408DFBB1F6317FD00D95D4C /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		0408DFBD1F6317FD00D95D4C /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		0408DFBF1F6317FD00D95D4C /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		0408DFC11F6317FD00D95D4C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0408DFC31F6317FD00D95D4C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0408DFCF1F671A2A00D95D4C /* WatchManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchManager.swift; sourceTree = "<group>"; };
 		044B1F641F139E3E00B33677 /* Warp17ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Warp17ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		044B1F671F139E3E00B33677 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		044B1F691F139E3E00B33677 /* CitiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesViewController.swift; sourceTree = "<group>"; };
@@ -138,6 +195,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		0408DFB11F6317FD00D95D4C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		044B1F611F139E3E00B33677 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -186,6 +250,37 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		0408DFA91F6317FD00D95D4C /* WarpWatch */ = {
+			isa = PBXGroup;
+			children = (
+				0408DFAA1F6317FD00D95D4C /* Interface.storyboard */,
+				0408DFAD1F6317FD00D95D4C /* Assets.xcassets */,
+				0408DFAF1F6317FD00D95D4C /* Info.plist */,
+			);
+			path = WarpWatch;
+			sourceTree = "<group>";
+		};
+		0408DFB81F6317FD00D95D4C /* WarpWatch Extension */ = {
+			isa = PBXGroup;
+			children = (
+				0408DFBB1F6317FD00D95D4C /* InterfaceController.swift */,
+				0408DFBD1F6317FD00D95D4C /* ExtensionDelegate.swift */,
+				0408DFBF1F6317FD00D95D4C /* NotificationController.swift */,
+				0408DFC11F6317FD00D95D4C /* Assets.xcassets */,
+				0408DFC31F6317FD00D95D4C /* Info.plist */,
+				0408DFB91F6317FD00D95D4C /* Supporting Files */,
+			);
+			path = "WarpWatch Extension";
+			sourceTree = "<group>";
+		};
+		0408DFB91F6317FD00D95D4C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				0408DFBA1F6317FD00D95D4C /* PushNotificationPayload.apns */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		044B1F5B1F139E3E00B33677 = {
 			isa = PBXGroup;
 			children = (
@@ -193,6 +288,8 @@
 				044B1F7B1F139E3E00B33677 /* Warp17iosTests */,
 				044B1F861F139E3E00B33677 /* Warp17iosUITests */,
 				047992BD1F59D13300E9F90D /* WarpWidget */,
+				0408DFA91F6317FD00D95D4C /* WarpWatch */,
+				0408DFB81F6317FD00D95D4C /* WarpWatch Extension */,
 				044B1F651F139E3E00B33677 /* Products */,
 				00D5F43190294FF8FAF9FECB /* Pods */,
 				B6681514905F5126274C74EA /* Frameworks */,
@@ -206,6 +303,8 @@
 				044B1F781F139E3E00B33677 /* Warp17iosTests.xctest */,
 				044B1F831F139E3E00B33677 /* Warp17iosUITests.xctest */,
 				047992BA1F59D13300E9F90D /* WarpWidget.appex */,
+				0408DFA81F6317FD00D95D4C /* WarpWatch.app */,
+				0408DFB41F6317FD00D95D4C /* WarpWatch Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -234,6 +333,7 @@
 				044B1FA71F1AA27200B33677 /* PlanetsViewController.swift */,
 				04FDFC651F4F59A1000B2730 /* GeoService.swift */,
 				047992B21F54B49300E9F90D /* EventsUpdater.swift */,
+				0408DFCF1F671A2A00D95D4C /* WatchManager.swift */,
 			);
 			path = Warp17ios;
 			sourceTree = "<group>";
@@ -313,6 +413,40 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		0408DFA71F6317FD00D95D4C /* WarpWatch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0408DFCB1F6317FD00D95D4C /* Build configuration list for PBXNativeTarget "WarpWatch" */;
+			buildPhases = (
+				0408DFA61F6317FD00D95D4C /* Resources */,
+				0408DFCA1F6317FD00D95D4C /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0408DFB71F6317FD00D95D4C /* PBXTargetDependency */,
+			);
+			name = WarpWatch;
+			productName = WarpWatch;
+			productReference = 0408DFA81F6317FD00D95D4C /* WarpWatch.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		0408DFB31F6317FD00D95D4C /* WarpWatch Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0408DFC71F6317FD00D95D4C /* Build configuration list for PBXNativeTarget "WarpWatch Extension" */;
+			buildPhases = (
+				0408DFB01F6317FD00D95D4C /* Sources */,
+				0408DFB11F6317FD00D95D4C /* Frameworks */,
+				0408DFB21F6317FD00D95D4C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "WarpWatch Extension";
+			productName = "WarpWatch Extension";
+			productReference = 0408DFB41F6317FD00D95D4C /* WarpWatch Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
 		044B1F631F139E3E00B33677 /* Warp17ios */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 044B1F8C1F139E3E00B33677 /* Build configuration list for PBXNativeTarget "Warp17ios" */;
@@ -324,11 +458,13 @@
 				825A56F25E0C267D57373D1C /* [CP] Embed Pods Frameworks */,
 				AF9AE41243982B19FE8AD09D /* [CP] Copy Pods Resources */,
 				047992CA1F59D13300E9F90D /* Embed App Extensions */,
+				0408DFCE1F6317FD00D95D4C /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				047992C51F59D13300E9F90D /* PBXTargetDependency */,
+				0408DFC51F6317FD00D95D4C /* PBXTargetDependency */,
 			);
 			name = Warp17ios;
 			productName = Warp17ios;
@@ -404,6 +540,16 @@
 				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = WarpTeam;
 				TargetAttributes = {
+					0408DFA71F6317FD00D95D4C = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = JM4PP95PX8;
+						ProvisioningStyle = Automatic;
+					};
+					0408DFB31F6317FD00D95D4C = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = JM4PP95PX8;
+						ProvisioningStyle = Automatic;
+					};
 					044B1F631F139E3E00B33677 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = JM4PP95PX8;
@@ -459,11 +605,30 @@
 				044B1F771F139E3E00B33677 /* Warp17iosTests */,
 				044B1F821F139E3E00B33677 /* Warp17iosUITests */,
 				047992B91F59D13300E9F90D /* WarpWidget */,
+				0408DFA71F6317FD00D95D4C /* WarpWatch */,
+				0408DFB31F6317FD00D95D4C /* WarpWatch Extension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		0408DFA61F6317FD00D95D4C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0408DFAE1F6317FD00D95D4C /* Assets.xcassets in Resources */,
+				0408DFAC1F6317FD00D95D4C /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0408DFB21F6317FD00D95D4C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0408DFC21F6317FD00D95D4C /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		044B1F621F139E3E00B33677 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -638,6 +803,16 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		0408DFB01F6317FD00D95D4C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0408DFC01F6317FD00D95D4C /* NotificationController.swift in Sources */,
+				0408DFBE1F6317FD00D95D4C /* ExtensionDelegate.swift in Sources */,
+				0408DFBC1F6317FD00D95D4C /* InterfaceController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		044B1F601F139E3E00B33677 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -665,6 +840,7 @@
 				044B1F961F17A5EC00B33677 /* CitiesProvider.swift in Sources */,
 				044B1FA61F1AA18F00B33677 /* DataStorage.swift in Sources */,
 				044B1F981F19475600B33677 /* ApiClient.swift in Sources */,
+				0408DFD01F671A2A00D95D4C /* WatchManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -695,6 +871,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		0408DFB71F6317FD00D95D4C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0408DFB31F6317FD00D95D4C /* WarpWatch Extension */;
+			targetProxy = 0408DFB61F6317FD00D95D4C /* PBXContainerItemProxy */;
+		};
+		0408DFC51F6317FD00D95D4C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0408DFA71F6317FD00D95D4C /* WarpWatch */;
+			targetProxy = 0408DFC41F6317FD00D95D4C /* PBXContainerItemProxy */;
+		};
 		044B1F7A1F139E3E00B33677 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 044B1F631F139E3E00B33677 /* Warp17ios */;
@@ -713,6 +899,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		0408DFAA1F6317FD00D95D4C /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0408DFAB1F6317FD00D95D4C /* Base */,
+			);
+			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
 		044B1F6B1F139E3E00B33677 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -740,6 +934,76 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		0408DFC81F6317FD00D95D4C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				DEVELOPMENT_TEAM = JM4PP95PX8;
+				INFOPLIST_FILE = "WarpWatch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = warpteam.Warp17ios.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.2;
+			};
+			name = Debug;
+		};
+		0408DFC91F6317FD00D95D4C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				DEVELOPMENT_TEAM = JM4PP95PX8;
+				INFOPLIST_FILE = "WarpWatch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = warpteam.Warp17ios.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.2;
+			};
+			name = Release;
+		};
+		0408DFCC1F6317FD00D95D4C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = JM4PP95PX8;
+				IBSC_MODULE = WarpWatch_Extension;
+				INFOPLIST_FILE = WarpWatch/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = warpteam.Warp17ios.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.2;
+			};
+			name = Debug;
+		};
+		0408DFCD1F6317FD00D95D4C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = JM4PP95PX8;
+				IBSC_MODULE = WarpWatch_Extension;
+				INFOPLIST_FILE = WarpWatch/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = warpteam.Warp17ios.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.2;
+			};
+			name = Release;
+		};
 		044B1F8A1F139E3E00B33677 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -956,6 +1220,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		0408DFC71F6317FD00D95D4C /* Build configuration list for PBXNativeTarget "WarpWatch Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0408DFC81F6317FD00D95D4C /* Debug */,
+				0408DFC91F6317FD00D95D4C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0408DFCB1F6317FD00D95D4C /* Build configuration list for PBXNativeTarget "WarpWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0408DFCC1F6317FD00D95D4C /* Debug */,
+				0408DFCD1F6317FD00D95D4C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		044B1F5F1F139E3E00B33677 /* Build configuration list for PBXProject "Warp17ios" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -999,6 +1281,7 @@
 				047992C91F59D13300E9F90D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

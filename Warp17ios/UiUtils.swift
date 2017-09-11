@@ -20,6 +20,14 @@ class UiUtils {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         appDelegate.showAlertGlobally(alert)
     }
+    public func infoAlert(text: String, title: String = "Info") {
+        let alert = UIAlertController(title: title, message: text, preferredStyle: .actionSheet)
+        let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        alert.addAction(action)
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.showAlertGlobally(alert)
+    }
     
     public static func debugPrint(_ caption: String, _ text: String) {
         let currentThread = getPrettyCurrentThreadDescription()

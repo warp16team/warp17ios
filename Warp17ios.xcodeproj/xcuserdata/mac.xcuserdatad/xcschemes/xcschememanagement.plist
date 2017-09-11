@@ -9,6 +9,16 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>WarpWatch (Notification).xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>12</integer>
+		</dict>
+		<key>WarpWatch.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>11</integer>
+		</dict>
 		<key>WarpWidget.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -17,6 +27,11 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>0408DFA71F6317FD00D95D4C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>044B1F631F139E3E00B33677</key>
 		<dict>
 			<key>primary</key>

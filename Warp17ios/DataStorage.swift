@@ -56,12 +56,6 @@ class DataStorage {
     
     init()
     {
-                //let defaults = UserDefaults(suiteName: "group.warpGame")
-                
-                // defaults?.set(string: self.getCurrentCity().name, forKey: "labelContents")
-        
-        //let defaults = UserDefaults(suiteName: "group.warpGame")
-        
         if AppSettings.sharedInstance.checkIsRealmInitialized() {
             UiUtils.debugPrint("data storage", "realm is not empty")
             

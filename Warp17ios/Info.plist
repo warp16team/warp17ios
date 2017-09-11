@@ -24,10 +24,10 @@
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string>warpteam.Warp17ios.url</string>
+			<string>Warpteam.Warp17ios.url</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>warp17iosApp</string>
+				<string>warpExtension</string>
 			</array>
 		</dict>
 	</array>
