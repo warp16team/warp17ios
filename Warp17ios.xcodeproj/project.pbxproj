@@ -16,6 +16,12 @@
 		0408DFC21F6317FD00D95D4C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0408DFC11F6317FD00D95D4C /* Assets.xcassets */; };
 		0408DFC61F6317FD00D95D4C /* WarpWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 0408DFA81F6317FD00D95D4C /* WarpWatch.app */; };
 		0408DFD01F671A2A00D95D4C /* WatchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0408DFCF1F671A2A00D95D4C /* WatchManager.swift */; };
+		0408DFD21F69B44100D95D4C /* CityBuildingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0408DFD11F69B44100D95D4C /* CityBuildingsViewController.swift */; };
+		0408DFD41F78464A00D95D4C /* BuildingsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0408DFD31F78464A00D95D4C /* BuildingsProvider.swift */; };
+		0408DFD61F78475C00D95D4C /* RealmBuildingLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0408DFD51F78475C00D95D4C /* RealmBuildingLevel.swift */; };
+		0408DFD81F78484100D95D4C /* RealmCityBuilding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0408DFD71F78484100D95D4C /* RealmCityBuilding.swift */; };
+		0408DFDA1F784FD300D95D4C /* CityPossibleBuildings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0408DFD91F784FD300D95D4C /* CityPossibleBuildings.swift */; };
+		0408DFDD1F7C435C00D95D4C /* RealmCityBuildingProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0408DFDC1F7C435C00D95D4C /* RealmCityBuildingProvider.swift */; };
 		044B1F681F139E3E00B33677 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044B1F671F139E3E00B33677 /* AppDelegate.swift */; };
 		044B1F6A1F139E3E00B33677 /* CitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044B1F691F139E3E00B33677 /* CitiesViewController.swift */; };
 		044B1F6D1F139E3E00B33677 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 044B1F6B1F139E3E00B33677 /* Main.storyboard */; };
@@ -141,6 +147,12 @@
 		0408DFC11F6317FD00D95D4C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0408DFC31F6317FD00D95D4C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0408DFCF1F671A2A00D95D4C /* WatchManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchManager.swift; sourceTree = "<group>"; };
+		0408DFD11F69B44100D95D4C /* CityBuildingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityBuildingsViewController.swift; sourceTree = "<group>"; };
+		0408DFD31F78464A00D95D4C /* BuildingsProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuildingsProvider.swift; sourceTree = "<group>"; };
+		0408DFD51F78475C00D95D4C /* RealmBuildingLevel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmBuildingLevel.swift; sourceTree = "<group>"; };
+		0408DFD71F78484100D95D4C /* RealmCityBuilding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmCityBuilding.swift; sourceTree = "<group>"; };
+		0408DFD91F784FD300D95D4C /* CityPossibleBuildings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityPossibleBuildings.swift; sourceTree = "<group>"; };
+		0408DFDC1F7C435C00D95D4C /* RealmCityBuildingProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmCityBuildingProvider.swift; sourceTree = "<group>"; };
 		044B1F641F139E3E00B33677 /* Warp17ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Warp17ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		044B1F671F139E3E00B33677 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		044B1F691F139E3E00B33677 /* CitiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesViewController.swift; sourceTree = "<group>"; };
@@ -281,6 +293,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		0408DFDB1F7C430400D95D4C /* Provider */ = {
+			isa = PBXGroup;
+			children = (
+				0408DFDC1F7C435C00D95D4C /* RealmCityBuildingProvider.swift */,
+			);
+			name = Provider;
+			sourceTree = "<group>";
+		};
 		044B1F5B1F139E3E00B33677 = {
 			isa = PBXGroup;
 			children = (
@@ -375,6 +395,7 @@
 				04AA98221F2228CA00A34E60 /* UpdatesProvider.swift */,
 				04AA98261F32739400A34E60 /* RegisterProvider.swift */,
 				04FDFC501F327A4C000B2730 /* AuthProvider.swift */,
+				0408DFD31F78464A00D95D4C /* BuildingsProvider.swift */,
 				044B1F971F19475600B33677 /* ApiClient.swift */,
 			);
 			name = Api;
@@ -383,7 +404,10 @@
 		04FDFC531F3B0F21000B2730 /* Realm */ = {
 			isa = PBXGroup;
 			children = (
+				0408DFDB1F7C430400D95D4C /* Provider */,
 				044B1FA31F1954BD00B33677 /* RealmCity.swift */,
+				0408DFD71F78484100D95D4C /* RealmCityBuilding.swift */,
+				0408DFD51F78475C00D95D4C /* RealmBuildingLevel.swift */,
 				04FDFC611F4DE720000B2730 /* RealmPlanet.swift */,
 			);
 			name = Realm;
@@ -393,8 +417,10 @@
 			isa = PBXGroup;
 			children = (
 				04FDFC591F488AA6000B2730 /* CityPopulationViewController.swift */,
+				0408DFD91F784FD300D95D4C /* CityPossibleBuildings.swift */,
 				04FDFC561F40EC1A000B2730 /* CityPageViewController.swift */,
 				04FDFC631F4DE76A000B2730 /* CityFoodViewController.swift */,
+				0408DFD11F69B44100D95D4C /* CityBuildingsViewController.swift */,
 			);
 			name = CityInfo;
 			sourceTree = "<group>";
@@ -817,19 +843,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0408DFD61F78475C00D95D4C /* RealmBuildingLevel.swift in Sources */,
 				044B1FA41F1954BD00B33677 /* RealmCity.swift in Sources */,
+				0408DFD21F69B44100D95D4C /* CityBuildingsViewController.swift in Sources */,
 				044B1F6A1F139E3E00B33677 /* CitiesViewController.swift in Sources */,
 				04AA98231F2228CA00A34E60 /* UpdatesProvider.swift in Sources */,
 				04FDFC661F4F59A1000B2730 /* GeoService.swift in Sources */,
 				044B1FAE1F1E9F0200B33677 /* AddCityViewController.swift in Sources */,
 				044B1FAA1F1D3A6F00B33677 /* AppSettings.swift in Sources */,
 				044B1FB21F21478100B33677 /* Updater.swift in Sources */,
+				0408DFDD1F7C435C00D95D4C /* RealmCityBuildingProvider.swift in Sources */,
 				04FDFC5A1F488AA6000B2730 /* CityPopulationViewController.swift in Sources */,
 				044B1F681F139E3E00B33677 /* AppDelegate.swift in Sources */,
 				04FDFC641F4DE76A000B2730 /* CityFoodViewController.swift in Sources */,
 				044B1FA81F1AA27200B33677 /* PlanetsViewController.swift in Sources */,
 				04AA98271F32739400A34E60 /* RegisterProvider.swift in Sources */,
+				0408DFD81F78484100D95D4C /* RealmCityBuilding.swift in Sources */,
 				047992B31F54B49300E9F90D /* EventsUpdater.swift in Sources */,
+				0408DFDA1F784FD300D95D4C /* CityPossibleBuildings.swift in Sources */,
+				0408DFD41F78464A00D95D4C /* BuildingsProvider.swift in Sources */,
 				04FDFC511F327A4C000B2730 /* AuthProvider.swift in Sources */,
 				04FDFC4F1F327828000B2730 /* NotificationEvent.swift in Sources */,
 				047992B11F54AF9B00E9F90D /* EventsProvider.swift in Sources */,

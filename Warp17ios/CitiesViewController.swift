@@ -63,9 +63,10 @@ class CitiesViewController: UITableViewController, TableViewRefreshDelegate {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
-        //if segue.identifier == "showCityInfo" {
+    
+        if segue.identifier == "showCityInfo" {
         
-        if let indexPath = tableView.indexPathForSelectedRow {
+          if let indexPath = tableView.indexPathForSelectedRow {
             DataStorage.sharedDataStorage.currentCityId = cities[indexPath.row].id
             
             let defaults = UserDefaults(suiteName: "group.warp17Game")
@@ -77,8 +78,8 @@ class CitiesViewController: UITableViewController, TableViewRefreshDelegate {
         //        if let destinationVC = segue.destination as? CityPageViewController{
         //            destinationVC.city = cities[indexPath.row]
         //        }
+          }
         }
-        //}
     }
 
 }

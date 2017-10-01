@@ -54,6 +54,8 @@ class DataStorage {
     public var currentPlanetId: Int = 0
     public var currentCityId: Int = 0
     
+    public var cityBuildingProvider: RealmCityBuildingProvider?
+    
     init()
     {
         if AppSettings.sharedInstance.checkIsRealmInitialized() {
@@ -61,6 +63,8 @@ class DataStorage {
             
             loadDataFromDb()
         }
+        
+        UiUtils.debugPrint("data storage", "realm: \(realm.configuration.fileURL?.absoluteString)")
     }
     
     public func setPlanetsVC(_ VC: TableViewRefreshDelegate) {

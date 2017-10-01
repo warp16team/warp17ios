@@ -16,7 +16,8 @@ class CityPageViewController: UIPageViewController {
     private(set) lazy var orderedViewControllers: [UIViewController] = {
         return [
             self.storyboard?.instantiateViewController(withIdentifier: "CityPopulationViewController"),
-            self.storyboard?.instantiateViewController(withIdentifier: "CityFoodViewController")
+            self.storyboard?.instantiateViewController(withIdentifier: "CityFoodViewController"),
+            self.storyboard?.instantiateViewController(withIdentifier: "CityBuildingsViewController")
         ]
     }() as! [UIViewController]
     

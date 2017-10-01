@@ -15,5 +15,6 @@ enum NotificationEvent: String
     case authenticated = "authenticated"
     case gpsUpdated = "gpsUpdated"
     case newGameEvent = "newGameEvent"
+    case possibleBuildingsLoaded = "possibleBuildingsLoaded"
     
 }

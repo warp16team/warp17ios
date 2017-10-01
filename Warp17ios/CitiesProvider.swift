@@ -80,6 +80,7 @@ class CitiesProvider
             planets[planet.id] = planet
             
             try! realm.write {
+                UiUtils.debugPrint("cities provider", "adding planet")
                 realm.add(planet, update: true)
             }
         }
@@ -97,6 +98,7 @@ class CitiesProvider
             city.planet = planetsDict[subJson["planetId"].intValue]!
             
             try! realm.write {
+                UiUtils.debugPrint("cities provider", "adding city")
                 realm.add(city, update: true)
             }
         }
